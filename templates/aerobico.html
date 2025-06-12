@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios - Aerobico</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-receita img {
+      width: 80%;
+      aspect-ratio: 3 / 3;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+      <h1>Exercícios Aeróbicos</h1>
+      <p>Melhore seu condicionamento cardiovascular com esses exercícios aeróbicos eficazes!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      <!-- Caminhada -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/caminhada.jpg') }}" alt="Caminhada">
+  <h2>Caminhada</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Baixo impacto para as articulações</li>
+      <li>Melhora a circulação sanguínea</li>
+      <li>Fácil de praticar em qualquer lugar</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Caminhe pelo menos 30 minutos diariamente, mantendo ritmo moderado.</p>
+  </div>
+</div>
+
+<!-- Pular Corda -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/pular_corda.jpg') }}" alt="Pular Corda">
+  <h2>Pular Corda</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Excelente para coordenação motora</li>
+      <li>Queima muitas calorias em pouco tempo</li>
+      <li>Fortalece pernas e core</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Comece com séries de 1 minuto, descanse 30 segundos e repita 5 vezes.</p>
+  </div>
+</div>
+
+<!-- Bicicleta -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/bicicleta.jpg') }}" alt="Bicicleta">
+  <h2>Bicicleta</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Fortalece pernas e glúteos</li>
+      <li>Baixo impacto nas articulações</li>
+      <li>Melhora a resistência cardiovascular</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Pedale por 30 a 45 minutos em ritmo moderado.</p>
+  </div>
+</div>
+
+<!-- Natação -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/natacao.jpg') }}" alt="Natação">
+  <h2>Natação</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Exercício completo para o corpo todo</li>
+      <li>Fortalece músculos e articulações</li>
+      <li>Baixo impacto e relaxante</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Nade por 30 minutos alternando estilos para variar o estímulo.</p>
+  </div>
+</div>
+
+<!-- Dança -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/danca.jpg') }}" alt="Dança">
+  <h2>Dança</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Divertido e motivador</li>
+      <li>Melhora coordenação e ritmo</li>
+      <li>Queima calorias e melhora o humor</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Escolha seu ritmo favorito e dance por 30 a 60 minutos.</p>
+  </div>
+</div>
+
+<!-- HIIT -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/hit.jpg') }}" alt="HIIT">
+  <h2>HIIT</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Treino intervalado de alta intensidade</li>
+      <li>Queima gordura rapidamente</li>
+      <li>Melhora resistência e força</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Faça séries de 20 segundos intensos e 40 segundos de descanso, repetindo 8 vezes.</p>
+  </div>
+</div>
+
+<!-- Subir Escadas -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/subir_escadas.webp') }}" alt="Subir Escadas">
+  <h2>Subir Escadas</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Fortalece glúteos e pernas</li>
+      <li>Melhora o condicionamento físico</li>
+      <li>Ajuda na queima de gordura</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Use escadas de casa ou prédios. Comece com 5 minutos e aumente conforme a resistência melhorar.</p>
+  </div>
+</div>
+
+<!-- Corrida Leve -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/corrida_leve.jpg') }}" alt="Corrida Leve">
+  <h2>Corrida Leve</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Melhora o sistema cardiovascular</li>
+      <li>Reduz o estresse</li>
+      <li>Auxilia na perda de peso</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Corra em ritmo leve por 20 a 30 minutos, 3 vezes por semana.</p>
+  </div>
+</div>
+
+<!-- Polichinelo -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/polichinelo.jpg') }}" alt="Polichinelo">
+  <h2>Polichinelo</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Ativa todo o corpo</li>
+      <li>Melhora a coordenação</li>
+      <li>Aumenta a frequência cardíaca rapidamente</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Faça séries de 30 segundos com 15 segundos de descanso entre elas.</p>
+  </div>
+</div>
+
+<!-- Escalador -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/mountain_climbers.jpg') }}" alt="Escalador">
+  <h2>Escalador</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Trabalha o core e cardio ao mesmo tempo</li>
+      <li>Alta intensidade em pouco tempo</li>
+      <li>Melhora a resistência muscular</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Execute o movimento por 30 segundos, descanse 15 segundos e repita por 4 rodadas.</p>
+  </div>
+</div>
+
+<!-- Agachamento com Salto -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/agachamento_salto.webp') }}" alt="Agachamento com Salto">
+  <h2>Agachamento com Salto</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Aumenta força e explosão muscular</li>
+      <li>Melhora o sistema cardiovascular</li>
+      <li>Trabalha pernas e glúteos</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Faça 3 séries de 10 a 15 repetições com descanso de 30 segundos entre elas.</p>
+  </div>
+</div>
+
+<!-- Corrida no Lugar -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_aerobico/corrida_parada.webp') }}" alt="Corrida no Lugar">
+  <h2>Corrida no Lugar</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Benefícios:</h3>
+    <ul>
+      <li>Pode ser feita em qualquer ambiente</li>
+      <li>Eleva os batimentos rapidamente</li>
+      <li>Trabalha a resistência</li>
+    </ul>
+    <br>
+    <h3>Dica:</h3>
+    <p>Corra no lugar por 1 minuto, descanse 30 segundos. Rep
+
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Detalhes' : 'Ver Detalhes';
+    }
+  </script>
+
+</body>
+</html>

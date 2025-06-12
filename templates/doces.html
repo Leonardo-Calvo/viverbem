@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Doces</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+  .card-receita img {
+  width: 85%;
+  aspect-ratio: 3 / 3; 
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+      <h1>Receitas de Doces</h1>
+      <p>Delícias para adoçar sua vida!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      <!-- Beijinho Low-Carb -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/beijinho_lowcarb.jpg') }}" alt="Beijinho Low Carb">
+        <h2>Beijinho LowCarb</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>200 gramas de creme de leite</li>
+            <li>100 gramas de coco ralado seco</li>
+            <li>200ml leite de coco</li>
+            <li>Adoçante a gosto</li>
+            <li>Coco ralado a gosto para enrolar</li>
+            <li>Cravo da índia a gosto para finalizar</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em uma panela, adicione o creme de leite, o coco ralado, o leite de coco, 
+                misture bem e deixe cozinhar, mexendo sempre, até incorporar;;</p>
+          <br>
+          <p>3° Acrescente o adoçante (a quantidade que desejar), misture, transfira para 
+                um prato e leve para geladeira para gelar;</p>
+          <br>
+          <p>4° Enrole os beijinhos, passe no coco ralado e coloque o cravo por cima;</p>
+          <br>
+          <p>5° Agora é só servir.</p>
+        </div>
+      </div>
+
+    <!-- Torta de maça de Frigideira -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/torta_maca_lowcarb.jpeg') }}" alt="Torta Maça Low Carb">
+        <h2>Torta de Maçã LowCarb de Frigideira</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 maçã</li>
+            <li>1 limão</li>
+            <li>1 ovo</li>
+            <li>1 colher de sopa de farinha de amêndoa</li>
+            <li>2 colheres de sopa de creme de leite</li>
+            <li>1 colher de chá de fermento químico em pó (fermento para bolo)</li>
+            <li>Manteiga ghee ou óleo de coco para untar</li>
+            <li>1 colher de sopa de açúcar demerara (ou adoçante culinário)</li>
+            <li>1 colher de chá de canela (ou a gosto)</li>  
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes da torta de maçã low carb de frigideira;</p>
+          <br>
+          <p>2° Com o auxílio de um descascador ou faca afiada, descasque a maçã e corte-a em meia-lua em fatias finas, 
+                com cerca de 0,5cm (meio centímetro). Esprema um limão por cima delas (para elas ão escurecerem) e reserve;</p>
+          <br>
+          <p>3° Para a massa, em um recipiente, adicione o ovo, a farinha de amêndoa, o creme de leite e o fermento. 
+                Com o auxílio de um garfo ou fouet, bata a mistura por cerca de 3 minutos ou até obter uma mistura homogênea e reserve;</p>
+          <br>      
+          <p>4° Em uma frigideira antiaderente, em fogo baixo, coloque um pouco de manteiga, deixe derreter e espalhe bem. 
+                Forre a frigideira com o açúcar demerara e a canela, salpicando por toda frigideira;</p>
+          <br>      
+          <p>5° Em seguida, disponha as fatias de maçã por toda frigideira;</p>
+          <br>
+          <p>6° Despeje a massa por cima, tampe e deixe cozinhar por cerca de 7 minutos;</p>
+          <br>
+          <p>7° Assim que a torta estiver pronta, desligue o fogo, desenforme a torta em um prato e polvilhe 
+                mais canela por cima. Sirva e bom apetite!</p>
+          </div>
+      </div>
+      
+    <!-- Bolo de Cenoura Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/bolo_cenoura_fit.webp') }}" alt="Bolo de Cenoura Fit">
+        <h2>Bolo de Cenoura Fit</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes do Bolo:</h3>
+          <ul>
+            <li>3 ovos médios</li>
+            <li>2 cenouras cruas (220 gramas)</li>
+            <li>1 xícara de chá de água (240 ml)</li>
+            <li>1 colher de sopa de manteiga</li>
+            <li>1 xícara de chá de açúcar mascavo (170 gramas)</li>
+            <li>2 xícaras de chá de farinha de arroz (240 gramas)</li>
+            <li>1 colher de sopa de canela em pó</li>
+            <li>1 colher de sopa de fermento químico em pó (fermento para bolo)</li>
+          </ul>
+          <br>
+          <h3>Ingredientes da Calda:</h3>
+          <ul>
+            <li>1 xícara de chá de leite (240 ml)</li>
+            <li>1 colher de sopa de manteiga</li>
+            <li>3 colheres de sopa de açúcar mascavo</li>
+            <li>3 colheres de sopa de cacau em pó</li>
+            <li>20 gramas de chocolate 70%</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Separe os ingredientes para preparar este bolo de cenoura fit com cobertura. Ligue o forno para preaquecer
+                a 180 °C;</p>
+          <br>
+          <p>2° Pique as cenouras em rodelinhas e reserve. Quebre os ovos e separe as gemas das claras. Em um recipiente,
+                peneire a farinha de arroz, o açúcar e a canela. Misture bem;</p>
+          <br>
+          <p>3° Em uma batedeira, ou com um fouet, bata as claras até chegar ao ponto de neve - reserve. No liquidificador, 
+                coloque as rodelas de cenoura, as gemas e a água - bata até formar uma mistura homogênea e cremosa;</p>
+          <br>
+          <p>4° Transfira a mistura de cenoura para um recipiente e adicione a manteiga. Mexa bem por cerca de 1 minuto ou 
+                até incorporar;</p>
+          <br>
+          <p>5° Adicione a mistura de ingredientes secos e mexa novamente para formar uma massa homogênea. Acrescente o fermento 
+                e as claras em neve. Misture delicadamente, com movimentos circulares de dentro para fora, apenas até dissolver;</p>
+          <br>
+          <p>6° Unte uma forma redonda com óleo (22 cm de diâmetro) e despeje a massa do bolo. Leve para assar por aproximadamente
+                30 minutos no forno preaquecido. Faça o teste do palito: espete um palito no centro da massa, se ele sair limpo, é porque o bolo está assado;</p>
+          <br>
+          <p>7° Para a calda: em uma panela, coloque a manteiga, o açúcar mascavo, o leite, o cacau em pó e o chocolate 70%.
+                Misture bem e leve ao fogo baixo;</p>
+          <br>
+          <p>8° Cozinhe a calda em fogo baixo por aproximadamente 5 minutos, mexendo sempre para não grudar no fundo. Quando a calda estiver homogênea e bem cremosa,
+                já pode desligar o fogo;</p>
+          <br>
+          <p>9° Quando o bolo estiver morno, desenforme-o e faça furinhos em sua superfície com um garfo. Assim, a calda vai permear 
+                a massa, que ficará mais molhadinha;</p>
+          <br>
+          <p>10° Cubra o bolo com a calda de chocolate. Se quiser, decore com chocolate granulado. Já pode servir!</p>
+        </div>
+      </div>
+
+    <!-- Sorvete de Abacaxi -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/sorvete_abacaxi.webp') }}" alt="Sorvete de Abacaxi">
+        <h2>Sorvete de Abacaxi</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>3 xícaras de chá de abacaxi picados e congelados</li>
+            <li>1/2 xícara de chá de leite de coco</li>
+            <br>
+          </ul>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes do sorvete de abacaxi;</p>
+          <br>
+          <p>2° Em um processador, triture bem o abacaxi;</p>
+          <br>
+          <p>3° Acrescente o leite de coco e bata até ficar cremoso;</p>
+          <br>
+          <p>4° Leve ao congelador por pelo menos 2 horas;</p>
+          <br>
+          <p>5° Sirva e bom apetite!</p>
+        
+        </div>
+      </div>
+      
+    <!-- Sorvete Banana e Amendoim -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/sorvete_banana_amendoim.webp') }}" alt="Sorvete Banana e Amendoim">
+        <h2>Sorvete de Banana com Pasta de Amendoim</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 bananas maduras e congeladas</li>
+            <li>2 colheres de sopa de pasta amendoim</li>
+            <li>1/2 vidro de leite de coco (100 ml)</li>
+            <li>1 scoop de Whey (opcional)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um liquidificador, adicione a banana e o leite de coco. Bata até homogeneizar;</p>
+          <br>
+          <p>3° Aos poucos, acrescente a pasta de amendoim, sem parar de bater;</p>
+          <br>
+          <p>4° Acrescente o Whey e bata somente para misturar;</p>
+          <br>
+          <p>5° Em seguida, transfira a massa para um recipiente, tampe e leve para o congelador por 2 horas;</p>
+          <br>
+          <p>6° Passado o tempo necessário, abra o pote e misture o sorvete, com o auxílio de uma colher, para quebrar 
+                os cristais de gelo que se formarem. Volte ao congelador e deixe por mais 2 horas, no mínimo;</p>
+          <br>
+          <p>7° Está pronto! Agora é só servir, bom apetite.</p>
+          
+        </div>
+      </div>
+
+    <!-- Brownie Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/brownie_fit.jpeg') }}" alt="Brownie Fit">
+        <h2>Brownie Fit</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 ovos</li>
+            <li>2 colheres de sopa de óleo de coco (ou manteiga ghee)</li>
+            <li>1 xícara de chá de açúcar mascavo peneirado</li>
+            <li>1/2 xícara de chá de farinha de arroz integral peneirada</li>
+            <li>1/2 xícara de chá de cacau em pó</li>
+            <li>100 gramas de chocolate meio amargo</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes do brownie fit;</p>
+          <br>
+          <p>2° Em um recipiente, coloque os ovos e o óleo de coco. Misture bem;</p>
+          <br>
+          <p>3° Depois, adicione a farinha, o açúcar e cacau. Misture até ficar homogêneo;</p>
+          <br>
+          <p>4° Derreta o chocolate no micro-ondas ou em banho-maria, junte na mistura e mexa até incorporar;</p>
+          <br>
+          <p>5° Transfira para uma forma (15 x 20 cm), untada e polvilhada com cacau;</p>
+          <br>
+          <p>6° Leve ao forno preaquecido a 200ºC por cerca de 25 minutos ou até formar a clássica casquinha de brownie;</p>
+          <br>
+          <p>7° Aproveite esse brownie fit delicioso. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Mousse Maracuja -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/mousse_maracuja.jpeg') }}" alt="Mousse Maracuja">
+        <h2>Mousse de Maracujá sem Açúcar</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 xícara de chá de leite em pó</li>
+            <li>1/2 xícara de chá de água morna</li>
+            <li>2 potes de iogurte natural (170 gramas cada)</li>
+            <li>4 colheres de sopa de xilitol</li>
+            <li>Suco de 2 maracujás</li>
+            <li>Polpa de 1 maracujá</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes da mousse de maracujá sem açúcar;</p>
+          <br>
+          <p>2° Para a mousse, em um liquidificador, bata o leite em pó e a água até ficar homogêneo;</p>
+          <br>
+          <p>3° Em seguida, adicione o iogurte, 3 colheres de sopa de xilitol e o suco dos maracujás. Bata tudo muito bem;</p>
+          <br>
+          <p>4° Depois, despeje a mousse em uma travessa. Reserve na geladeira;</p>
+          <br>
+          <p>5° Para a calda, em uma panela, coloque a polpa do maracujá e 1 colher de sopa de xilitol. Leve ao fogo e deixe até a 
+                calda encorpar;</p>
+          <br>
+          <p>6° Assim que estiver pronta, retire do fogo e deixe amornar um pouco;</p>
+          <br>
+          <p>7° Depois, despeje a calda sobre a mousse;</p>
+          <br>
+          <p>8° Leve à geladeira e deixe gelar por, pelo menos, 2 horas ou até firmar a mousse;</p>
+          <br>
+          <p>9° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Cookies de Aveia -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/cookies_aveia.jpeg') }}" alt="Cookies Aveia">
+        <h2>Cookies Fit de Aveia</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 ovos</li>
+            <li>2 colheres de sopa de manteiga</li>
+            <li>1/2 xícara de açúcar mascavo</li>
+            <li>2 xícaras de aveia em flocos</li>
+            <li>1/2 xícara de farinha integral</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em uma tigela, quebre os dois ovos e adicione a manteiga. Misture bem;</p>
+          <br>
+          <p>3° Em seguida, acrescente o açúcar, a aveia e a farinha. Misture bem até obter uma massa homogênea;</p>
+          <br>
+          <p>4° Faça bolinhas e achate levemente cada;</p>
+          <br>
+          <p>5° Disponha os cookies em uma assadeira, com espaço entre eles e leve ao forno preaquecido a 180ºC por 
+                cerca de 20 minutos, ou até que estejam assadas;</p>
+          <br>
+          <p>6° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Panqueca Fit Whey de Cacau -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/panqueca_fit_whey.webp') }}" alt="Panqueca Fit Whey">
+        <h2>Panqueca Fit com Whey de Cacau</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>4 bananas-maçãs (ou 2 bananas-pratas ou 2 bananas-nanicas) bem maduras</li>
+            <li>2 ovos</li>
+            <li>4 colheres de sopa de farinha de amêndoas</li>
+            <li>1 scoop de Whey sabor cacau (ou da sua prefêrencia)</li>
+            <li>2 colheres de sopa de semente de girassol</li>
+            <li>Noz-pecã a gosto</li>
+            <li>Mel e frutas vermelhas a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um recipiente, amasse bem as bananas;</p>
+          <br>
+          <p>3° Adicione os ovos, a farinha, o Whey e as sementes. Misture até incorporar;</p>
+          <br>
+          <p>4° Unte uma frigideira com um pouco de azeite, deixe aquecer e, em seguida, despeje uma porção da massa;</p>
+          <br>
+          <p>5° Deixe assar bem e depois vire para dourar o outro lado. Repita o processo até a massa acabar;</p>
+          <br>
+          <p>6° Decore com a noz-pecã, as frutas vermelhas, o mel e sirva. Bom apetite!</p>
+          
+          
+        </div>
+      </div>
+
+    <!-- Bolo Prestigio Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/bolo_prestigio_fit.webp') }}" alt="Bolo Prestigio Fit">
+        <h2>Bolo de Prestígio FIT</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes da Massa:</h3>
+          <ul>
+            <li>2 ovos</li>
+            <li>250 ml de leite de coco</li>
+            <li>1 colher de sopa de óleo de coco</li>
+            <li>1/2 xícara de chá de açúcar demerara</li>
+            <li>2 xícaras de chá de aveia em flocos</li>
+            <li>1 xícara de chá de farinha de arroz (opcional)</li>
+            <li>2 colheres de sopa de cacau em pó</li>
+            <li>1 colher de chá de fermento químico em pó (fermento para bolo)</li>
+          </ul>
+          <br>
+          <h3>Ingredientes da Cobertura:</h3>
+          <ul>
+            <li>1 xícara de chá de leite de coco</li>
+            <li>4 colheres de sopa de coco ralado</li>
+            <li>1 colher de sopa de amido de milho</li>
+            <li>2 colheres de sopa de açúcar demerara</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Separe os ingredientes do bolo de prestígio fit;</p>
+          <br>
+          <p>2° Para a massa, em um liquidificador, coloque os ovos, o leite de coco, o óleo de coco, 
+                açúcar demerara, aveia em flocos e a farinha de arroz. Comece a bater;</p>
+          <br>
+          <p>3° Em seguida, adicione o cacau em pó e o fermento. Continue batendo no liquidificador até tudo incorporar;</p>
+          <br>
+          <p>4° Coloque em uma forma untada e leve ao forno preaquecido a 180ºC por aproximadamente 25 minutos;</p>
+          <br>
+          <p>5° Para a cobertura, em uma panela coloque o leite de coco, o coco desidratado, o amido de milho e o açúcar.
+                Misture e leve ao fogo, mexendo sempre, até ficar cremoso;</p>
+          <br>
+          <p>6° Despeje a cobertura pronta por cima do bolo desenformado e salpique mais coco ralado por cima;</p>
+          <br>
+          <p>7° Sirva com uma xícara de café ou chá. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Palha Italiana Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/palha_italiana_fit.jpg') }}" alt="Palha Italiana Fit">
+        <h2>Palha Italiana Fit</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 caixinha de creme de leite.</li>
+            <li>1 colher de sopa de cacau em pó</li>
+            <li>2 colheres de sopa de eritritol/xilitol</li>
+            <li>40 g de chocolate 70%</li>
+            <li>1 colher de café de manteiga</li>
+            <li>70 g da bolacha de sua preferência (doce)</li>
+            <li>Leite em pó para polvilhar</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Em uma panela, adicione todos os ingredientes, exceto a bolacha.</p>
+          <br>
+          <p>2° Misture tudo, leve ao fogo baixo e mexa por cerca de 10 minutos, ou até desgrudar do fundo 
+                da panela (ponto de brigadeiro).</p>
+          <br>
+                <p>3° Desligue o fogo e adicione as bolachas picadas grosseiramente.</p>
+          <p>4° Transfira a massa para uma travessa untada ou com papel manteiga.</p>
+          <br>
+          <p>5° Leve para a geladeira até firmar.</p>
+          <br>
+          <p>6° Assim que estiver no ponto de corte, retire da geladeira, corte a palha italiana
+               em pedaços e passe no leite em pó.</p>
+          <br>
+          <p>7° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Barrinha Proteica -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_doce/barrinha_proteica.webp') }}" alt="Barrinha Proteica">
+        <h2>Barrinha Proteica</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 bananas maduras amassadas</li>
+            <li>150 gramas de aveia em flocos grossos</li>
+            <li>50 gramas de Whey Protein</li>
+            <li>2 colheres de sopa de chia</li>
+            <li>Passas a gosto (opcional)</li>
+            <li>Chocolate 70% a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um recipiente, coloque todos os ingredientes (menos o chocolate) e misture até formar uma massa;</p>
+          <br>
+          <p>3° Transfira para uma forma untada e leve ao forno preaquecido a 180ºC por cerca de 20 minutos;</p>
+          <br>
+          <p>4° Derrete o chocolate no micro-ondas (ou em banho-maria) e despeje em cima da massa já assada;</p>
+          <br>
+          <p>5° Deixe esfriar e o chocolate endurecer;</p>
+          <br>
+          <p>6° Corte em formato de barrinhas e sirva. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Receita' : 'Ver Receita';
+    }
+  </script>
+
+</body>
+</html>

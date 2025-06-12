@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios - Costas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-receita img {
+      width: 80%;
+      aspect-ratio: 3 / 3;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+      <h1>Exercícios para Costas</h1>
+     <p>Desenvolva e fortaleça a musculatura das costas com esses exercícios eficazes!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      
+      <!-- Barra Fixa -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/barra_fixa.gif') }}" alt="Barra Fixa">
+  <h2>Barra Fixa</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Bíceps</li>
+      <li>Trapézio</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Pendure-se na barra com as mãos afastadas na largura dos ombros.</p>
+    <br>
+    <p>2. Puxe seu corpo até o queixo ultrapassar a barra, contraindo as costas.</p>
+    <br>
+    <p>3. Abaixe-se lentamente até estender os braços.</p>
+  </div>
+</div>
+
+<!-- Remada Curvada com Barra -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/remada_curvada_barra.gif') }}" alt="Remada Curvada com Barra">
+  <h2>Remada Curvada com Barra</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Trapézio</li>
+      <li>Romboides</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Com as pernas semi-flexionadas, incline o tronco para frente e segure a barra.</p>
+    <br>
+    <p>2. Puxe a barra em direção ao abdômen.</p>
+    <br>
+    <p>3. Retorne controladamente à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Remada Unilateral com Halter -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/remada_unilateral_halter.gif') }}" alt="Remada Unilateral com Halter">
+  <h2>Remada Unilateral com Halter</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Romboides</li>
+      <li>Bíceps</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Apoie um joelho e uma mão em um banco e segure o halter com a outra.</p>
+    <br>
+    <p>2. Puxe o halter até o lado do seu tronco.</p>
+    <br>
+    <p>3. Retorne lentamente à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Remada Baixa no Cabo -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/remada_baixa_cabo.gif') }}" alt="Remada Baixa no Cabo">
+  <h2>Remada Baixa no Cabo</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Romboides</li>
+      <li>Bíceps</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se na máquina, segure a pegada e mantenha o tronco reto.</p>
+    <br>
+    <p>2. Puxe o cabo em direção ao abdômen.</p>
+    <br>
+    <p>3. Retorne de forma controlada à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Remada Cavalinho (T-Bar) -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/remada_tbar.gif') }}" alt="Remada Cavalinho (T-Bar)">
+  <h2>Remada Cavalinho (T-Bar)</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Romboides</li>
+      <li>Trapézio</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Apoie o peito no suporte da máquina e segure as alças.</p>
+    <br>
+    <p>2. Puxe as alças em direção ao seu peito.</p>
+    <br>
+    <p>3. Retorne controladamente.</p>
+  </div>
+</div>
+
+<!-- Puxada Frente na Polia Alta -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/puxada_frontal.gif') }}" alt="Puxada Frente na Polia Alta">
+  <h2>Puxada Frente na Polia Alta</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Bíceps</li>
+      <li>Romboides</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se na máquina, segure a barra com pegada aberta.</p>
+    <br>
+    <p>2. Puxe a barra até a frente do peito.</p>
+    <br>
+    <p>3. Retorne lentamente ao topo.</p>
+  </div>
+</div>
+
+<!-- PullDown -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/puxada_atras.gif') }}" alt="Puxada Atrás na Polia Alta">
+  <h2>PullDown</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Trapézio</li>
+      <li>Romboides</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se na máquina e puxe a barra por trás da cabeça.</p>
+    <br>
+    <p>2. Desça até a altura dos ombros.</p>
+    <br>
+    <p>3. Retorne controladamente.</p>
+  </div>
+</div>
+
+<!-- Pulldown com Pegada Supinada -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/pulldown_supinado.gif') }}" alt="Pulldown com Pegada Supinada">
+  <h2>Pulldown com Pegada Supinada</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Bíceps</li>
+      <li>Romboides</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se e segure a barra com as palmas viradas para você.</p>
+    <br>
+    <p>2. Puxe a barra até o peito e contraia as costas.</p>
+    <br>
+    <p>3. Volte lentamente à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Pull-over na Polia Alta -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/pullover_polia.gif') }}" alt="Pull-over na Polia Alta">
+  <h2>Pull-over na Polia Alta</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Serrátil</li>
+      <li>Peitoral menor</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Em pé, segure a barra na polia alta com os braços estendidos.</p>
+    <br>
+    <p>2. Puxe a barra para baixo em direção às coxas.</p>
+    <br>
+    <p>3. Retorne devagar ao topo sem mover o tronco.</p>
+  </div>
+</div>
+
+<!-- Encolhimento de Ombros com Halter -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/encolhimento_ombros.gif') }}" alt="Encolhimento de Ombros com Halter">
+  <h2>Encolhimento de Ombros com Halter</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Trapézio superior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Segure um halter em cada mão com os braços ao lado do corpo.</p>
+    <br>
+    <p>2. Eleve os ombros em direção às orelhas.</p>
+    <br>
+    <p>3. Abaixe os ombros lentamente.</p>
+  </div>
+</div>
+
+<!-- Remada Alta com Barra -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/remada_alta_barra.gif') }}" alt="Remada Alta com Barra">
+  <h2>Remada Alta com Barra</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Trapézio</li>
+      <li>Deltoide posterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Em pé, segure a barra com as mãos na largura dos ombros.</p>
+    <br>
+    <p>2. Puxe a barra em linha reta até o queixo.</p>
+    <br>
+    <p>3. Abaixe lentamente.</p>
+  </div>
+</div>
+
+<!-- Levantamento Terra (Deadlift) -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_costas/levantamento_terra.gif') }}" alt="Levantamento Terra (Deadlift)">
+  <h2>Levantamento Terra (Deadlift)</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Dorsal</li>
+      <li>Glúteos</li>
+      <li>Posterior da coxa</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Fique de pé com os pés na largura dos ombros e a barra próxima das canelas.</p>
+    <br>
+    <p>2. Flexione os quadris e joelhos para pegar a barra.</p>
+    <br>
+    <p>3. Estenda o corpo levantando a barra até ficar ereto.</p>
+  </div>
+</div>
+
+
+      
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Detalhes' : 'Ver Detalhes';
+    }
+  </script>
+
+</body>
+</html>

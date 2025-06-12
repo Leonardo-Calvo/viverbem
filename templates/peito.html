@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios - Peito</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-receita img {
+      width: 80%;
+      aspect-ratio: 3 / 3;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+      <h1>Exercícios para Peito</h1>
+      <p>Fortaleça o peitoral com esses exercícios eficazes!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+         <!-- Supino Reto -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/exercicios_peito/supino_reto.gif') }}" alt="Supino Reto">
+        <h2>Supino Reto</h2>
+        <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+        <div class="receita-detalhes">
+          <h3>Músculos trabalhados:</h3>
+          <ul>
+            <li>Peitoral maior</li>
+            <li>Tríceps braquial</li>
+            <li>Deltoide anterior</li>
+          </ul>
+          <br>
+          <h3>Como fazer:</h3>
+          <p>1. Deite-se no banco com os pés apoiados no chão e segure a barra com as mãos afastadas na largura dos ombros.</p>
+          <br>
+          <p>2. Abaixe a barra lentamente até o meio do peito, mantendo os cotovelos para fora.</p>
+          <br>
+          <p>3. Empurre a barra de volta para cima até esticar os braços, sem travar os cotovelos.</p>
+        </div>
+      </div>
+          <!-- Supino Inclinado com Barra-->
+      <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/supino_inclinado_barra.gif') }}" alt="Supino Inclinado">
+  <h2>Supino Inclinado com Barra</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral superior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se em um banco inclinado a 30–45°, com os pés firmes no chão.</p>
+    <br>
+    <p>2. Segure a barra com as mãos afastadas um pouco mais que os ombros.</p>
+    <br>
+    <p>3. Abaixe a barra até o alto do peito e depois empurre de volta para cima.</p>
+  </div>
+      </div>
+          <!-- Supino Declinado com Barra -->
+      <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/supino_declinado_barra.gif') }}" alt="Supino Declinado">
+  <h2>Supino Declinado com Barra</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral inferior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Deite-se em um banco declinado e prenda os pés nos apoios.</p>
+    <br>
+    <p>2. Segure a barra com as mãos afastadas e abaixe até a parte inferior do peito.</p>
+    <br>
+    <p>3. Empurre de volta até estender os braços.</p>
+  </div>
+     </div>
+           <!-- Supino Reto com Halteres -->
+     <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/supino_reto_halteres.gif') }}" alt="Supino Reto com Halteres">
+  <h2>Supino Reto com Halteres</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Deite-se em um banco reto com um halter em cada mão.</p>
+    <br>
+    <p>2. Com os braços estendidos, abaixe os halteres ao lado do peito.</p>
+    <br>
+    <p>3. Empurre os halteres para cima até os braços estarem estendidos.</p>
+  </div>
+    </div>
+           <!-- Supino Inclinado com Halteres-->
+    <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/supino_inclinado_halteres.gif') }}" alt="Supino Inclinado com Halteres">
+  <h2>Supino Inclinado com Halteres</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral superior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Deite-se em um banco inclinado segurando halteres na altura do peito.</p>
+    <br>
+    <p>2. Empurre os halteres para cima até estender os braços.</p>
+    <br>
+    <p>3. Abaixe lentamente os halteres até a posição inicial.</p>
+  </div>
+   </div>
+           <!-- Crucifixo Reto -->
+   <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/crucifixo_reto.gif') }}" alt="Crucifixo Reto">
+  <h2>Crucifixo Reto</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Deite-se em um banco reto com um halter em cada mão, braços estendidos acima do peito.</p>
+    <br>
+    <p>2. Abaixe os braços lateralmente em arco até sentir alongar o peito.</p>
+    <br>
+    <p>3. Volte à posição inicial contraindo o peito.</p>
+  </div>
+  </div>
+          <!-- Mergulho nas Paralelas -->
+    <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/mergulho_paralelas.gif') }}" alt="Mergulho nas Paralelas">
+  <h2>Mergulho nas Paralelas</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Apoie-se nas barras paralelas com os braços estendidos e o corpo ligeiramente inclinado para frente.</p>
+    <br>
+    <p>2. Abaixe o corpo lentamente até os cotovelos formarem um ângulo de 90°.</p>
+    <br>
+    <p>3. Empurre o corpo de volta até estender os braços, mantendo a inclinação.</p>
+  </div>
+   </div>
+          <!-- Crucifixo no Peck Deck -->
+   <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/peck_deck.gif') }}" alt="Peck Deck">
+  <h2>Crucifixo no Peck Deck</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se na máquina com os braços apoiados nas alças.</p>
+    <br>
+    <p>2. Traga as alças à frente, unindo os braços.</p>
+    <br>
+    <p>3. Retorne lentamente à posição inicial.</p>
+  </div>
+   </div>
+        <!-- Cross Over -->
+   <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/crossover.gif') }}" alt="Cross Over">
+  <h2>Cross Over</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Em pé entre duas polias altas, segure as alças.</p>
+    <br>
+    <p>2. Incline-se levemente à frente e traga as alças em arco até frente do peito.</p>
+    <br>
+    <p>3. Retorne controlando o movimento.</p>
+  </div>
+   </div>
+          <!-- Flexão de Braço -->
+    <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/flexao_tradicional.gif') }}" alt="Flexão de Braço">
+  <h2>Flexão de Braço</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Posicione as mãos no chão na largura dos ombros, com o corpo alinhado.</p>
+    <br>
+    <p>2. Abaixe o corpo até quase tocar o chão.</p>
+    <br>
+    <p>3. Empurre o corpo de volta até estender os braços.</p>
+  </div>
+   </div>
+          <!-- Flexão com Pés Elevados -->
+   <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/flexao_elevada.gif') }}" alt="Flexão com Pés Elevados">
+  <h2>Flexão com Pés Elevados</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral superior</li>
+      <li>Tríceps braquial</li>
+      <li>Deltoide anterior</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Apoie os pés em um banco ou degrau e as mãos no chão.</p>
+    <br>
+    <p>2. Realize a flexão descendo até quase tocar o chão.</p>
+    <br>
+    <p>3. Empurre para cima até estender os braços.</p>
+  </div>
+  </div>
+
+        <!-- Pullover com Halter -->       
+   <div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_peito/pullover.gif') }}" alt="Pullover com Halter">
+  <h2>Pullover com Halter</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Peitoral maior</li>
+      <li>Serrátil anterior</li>
+      <li>Tríceps (secundário)</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Deite-se em um banco segurando um halter com as duas mãos acima do peito.</p>
+    <br>
+    <p>2. Leve o halter para trás da cabeça com os braços estendidos.</p>
+    <br>
+    <p>3. Retorne à posição inicial contraindo o peitoral.</p>
+  </div>
+</div>
+
+
+
+
+   
+       
+
+  
+
+
+
+
+
+
+
+
+
+
+ 
+      
+
+
+
+
+
+
+
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Detalhes' : 'Ver Detalhes';
+    }
+  </script>
+
+</body>
+</html>

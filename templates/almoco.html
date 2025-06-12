@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Almoço e Jantar</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+  .card-receita img {
+  width: 85%;
+  aspect-ratio: 3 / 3; 
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+    <h1>Receitas de Almoço e Jantar</h1>
+    <p>Refeições completas para nutrir seu corpo e encantar seu paladar!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      <!-- Strogonoff Fit com Batata-doce -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/strogonoff_fit_doce.webp') }}" alt="Strogonoff Fit">
+        <h2>Strogonoff Fit com Batata-Doce</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes (3 porções)</h3>
+          <ul>
+            <li>1/2 peito de frango</li>
+            <li>sal a gosto</li>
+            <li>1/2 cebola</li>
+            <li>1 xícara de molho de tomate</li>
+            <li>1 batata-doce</li>
+            <li>pimenta-do-reino a gosto</li>
+            <li>1 fio de azeite</li>
+            <li>1 tomate</li>
+            <li>1 copo de iogurte natural</li>
+            <li>alecrim a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Tempere o frango com sal e pimenta-do-reino.</p>
+          <br>
+          <p>2° Em uma panela, aqueça 1 fio de azeite e refogue a cebola. </p>
+          <br>
+          <p>3° Adicione 1 pitada de sal e o frango. </p>
+          <br>
+          <p>4° Deixe refogar um pouco e acrescente o tomate.</p>
+          <br>
+          <p>5° Adicione o molho de tomate e deixe cozinhar por 5 minutos. </p>
+          <br>
+          <p>6° Em seguida, acrescente o iogurte natural.</p>
+          <br>
+          <p>7° Misture bem e desligue o fogo.</p>
+          <br>
+          <p>8° Cozinhe uma batata-doce com casca.</p>
+          <br>
+          <p>9° Em seguida, corte-a em rodelas. </p>
+          <br>
+          <p>10° Tempere as rodelas com sal e alecrim.</p>
+          <br>
+          <p>11° Aqueça 1 fio de azeite e doure as rodelas de batata-doce.</p>
+          <br>
+          <p>12° Sirva o strogonoff com a batata-doce e bom apetite!</p>
+        
+        </div>
+      </div>
+
+    <!-- Salada de Grão de Bico -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/salada_grao_bico.webp') }}" alt="Salada Grão de Bico">
+        <h2>Salada de Grão de Bico</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 xícaras de chá de grão-de-bico</li>
+            <li>1 dente de alho</li>
+            <li>1 colher de sobremesa de sal</li>
+            <li>Água suficiente para cozinhar o grão-de-bico</li>   
+          </ul>
+          <br>
+          <h3>Molho:</h3>
+          <ul>
+            <li>5 colheres de sopa de azeite</li>
+            <li>1 limão</li>
+            <li>Meia xícara de chá de azeitonas fatiadas</li>
+            <li>1 cebola picada</li>
+            <li>2 dentes de alho picados</li>
+            <li>10 folhas de hortelã picadas</li>
+            <li>1 colher de chá de sal</li>
+            <li>1 pimentão verde em cubos</li>
+            <li>1 tomate em cubos</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo: Grão-de-bico</h3>
+          <p>1° Em um recipiente, coloque 2 xícaras de chá de grão-de-bico e água suficiente para cobrir os grãos.
+                Deixe de molho de um dia para o outro.</p>
+          <br>
+          <p>2° No dia seguinte, escorra a água e coloque os grãos na panela de pressão. Em seguida, 
+                adicione 1 dente de alho, 1 colher de sobremesa de sal e água suficiente para cobrir os grãos. Feche a panela e cozinhe por 10 minutos após pegar pressão.</p>
+          <br>
+          <p>3° Escorra o grão-de-bico, coloque em um recipiente e espere esfriar.</p>
+          <br>
+          <h3>Modo de preparo: Molho</h3>
+          <p>1° Em um recipiente, coloque 5 colheres de sopa de azeite, 1 limão, meia xícara de chá de azeitona fatiada,
+                1 cebola picada, 2 dentes de alho picados, 10 folhas de hortelã picadas e 1 colher de chá de sal. Misture e reserve.</p>
+          <br>
+          <p>2° Na tigela com o grão-de-bico, adicione 1 pimentão verde em cubos e 1 tomate em cubos. Misture e, depois,
+                acrescente o molho.</p>
+          <br>
+          <p>3° Misture novamente e sirva em seguida.</p>         
+          
+        </div>
+      </div>
+    
+      <!-- Salada Feijão Atum -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/salada_feijao_atum.webp') }}" alt="Nome DA RECEITA">
+        <h2>Salada de Feijão-Fradinho com Atum</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>500 gramas de feijão-fradinho cozido</li>
+            <li>240 gramas de atum sólido drenado</li>
+            <li>Meia cebola-roxa picada</li>
+            <li>100 gramas de tomate-cereja</li>
+            <li>Suco de meio limão</li>
+            <li>Salsinha picada a gosto</li>
+            <li>Pimenta-do-reino a gosto</li>
+            <li>Azeite a gosto</li>
+            <li>Sal a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Em um bowl, adicione a cebola-roxa, o atum sólido, a salsinha, o tomate-cereja, o suco de limão e o azeite.</p>
+          <br>
+          <p>2° Tempere com sal, pimenta-do-reino e misture bem.</p>
+          <br>
+          <p>3° Junte o feijão-fradinho cozido e misture para que os ingredientes incorporem bem.</p>
+          <br>
+          <p>4° Finalize com azeite e sirva.</p>
+  
+        </div>
+      </div>
+
+    <!-- Salada de Macarrão com Atum -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/salada_macarrao_atum.webp') }}" alt="Salda de Macarrao com Atum">
+        <h2>Salada de Macarrão com Atum Light</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes da salada:</h3>
+          <ul>
+            <li>2 xícaras de chá de macarrão integral cozido (qualquer massa curta)</li>
+            <li>1/2 xícara de chá de ervilhas frescas</li>
+            <li>1/2 xícara de chá de milho-verde</li>
+            <li>1 lata de atum light (em água)</li>
+            <li>1 tomate picado</li>
+            <li>1/4 de cebola picada</li>
+            <li>2 colheres de sopa de salsinha</li>
+            <li>2 colheres de sopa de nozes picadas (opcional)</li>
+            <li>Sal e pimenta-do-reino a gosto</li>
+          </ul>
+          <br>
+          <h3>Ingradientes do Molho:</h3>
+          <ul>
+           <li>2 colheres de sopa de azeite</li>
+           <li>3 colheres de sopa de creme de ricota (ou maionese light)</li>
+           <li>1 colher de sobremesa de mostarda dijon</li>
+           <li>3 colheres de sopa de leite</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um refratário, adicione o macarrão cozido, as ervilhas, o milho-verde, o atum, o tomate, 
+                a cebola, a salsinha, as nozes e misture. Reserve;</p>
+          <br>
+          <p>3° Reúna os ingredientes do molho;</p>
+          <br>
+          <p>4° Em uma recipiente pequena, coloque o azeite, o creme de ricota, a mostarda e misture bem;</p>
+          <br>
+          <p>5° Gradualmente vá acrescentando o leite e misturando bem até chegar na consistência que você 
+                desejar;</p>
+          <br>
+          <p>6° Despeje o molho sobre a salada, tempere com sal, pimenta e misture bem;</p>
+          <br>
+          <p>7° Agora é só servir.</p>
+          
+        </div>
+      </div>
+    
+    <!-- Purê de grão-de-bico -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/pure_grao_bico.webp') }}" alt="Purê Grão de Bico">
+        <h2>Purê de Grão-de-Bico</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 xícara de chá de grão-de-bico cru (250 gramas)</li>
+            <li>3 xícaras de chá de água para demolhar (720 ml)</li>
+            <li>3 xícaras de chá de água para cozinhar (720 ml)</li>
+            <li>1 colher de chá de bicarbonato de sódio</li>
+            <li>150 ml de água filtrada</li>
+            <li>1 colher de sopa + 1 fio de azeite</li>
+            <li>2 colheres de sopa de caldo do limão</li>
+            <li>1 dente de alho picadinho</li>
+            <li>1/2 colher de chá de sal (ou a gosto)</li>
+            <li>1/2 noz-moscada ralada na hora</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes para fazer esse delicioso purê de grão-de-bico;</p>
+          <br>
+          <p>2° Coloque o grão-de-bico em uma tigela com a água para demolhar e o bicarbonato de sódio - 
+                ele ajuda a diminuir o tempo de cozimento. Deixe de molho por cerca de 8 a 12 horas. Você também 
+                pode utilizar o grão-de-bico em conserva, mas fazer em casa é mais saudável e econômico;</p>
+          <br>
+          <p>3° Após o demolho, escorra a água e leve os grãos para a panela de pressão. Cubra com 3 xícaras de
+                chá de água, feche a panela e leve para cozinhar em fogo médio. Logo que pegar pressão,
+                conte 8 minutos e desligue - sem o bicarbonato no demolho o tempo de cozimento seria de 25 
+                minutos;</p>
+          <br>      
+          <p>4° Deixe a pressão sair sozinha, abra a panela e verifique se os grãos estão macios. Escorra a 
+                água e coloque o grão-de-bico no liquidificador. Junte os 150 ml de água, a colher de azeite, 
+                o sal e o caldo do limão. Bata até obter uma mistura homogênea e cremosa;</p>
+          <br>
+          <p>5° Em uma panela, em fogo baixo, esquente o fio de azeite e adicione o alho. Refogue por 30 
+                segundos, apenas para aromatizar o azeite (não deixe dourar!). Acrescente a mistura de 
+                grão-de-bico e a noz-moscada e deixe cozinhar, mexendo até que comece a desgrudar da panela;</p>
+          <br>
+          <p>6° Prove o purê e, se necessário, acerte o sal, misture bem e desligue o fogo. Se quiser,
+                finalize com ervas frescas. Agora é só servir esse purê proteico e muito saboroso. Aproveite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Filé de Frango à Parmegiana LowCarb -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/file_parmegiana_fit.webp') }}" alt="Parmegiana LowCarb">
+        <h2>Filé de Frango à Parmegiana LowCarb</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes do Molho de Tomate:</h3>
+          <ul>
+            <li>3 tomates italianos grandes cortados em 4 partes</li>
+            <li>1 cebola grande cortada em 4 partes</li>
+            <li>3 dentes de alho cortados grosseiramente</li>
+            <li>Folhinhas de manjericão fresco</li>
+          </ul>
+          <br>
+          <h3>Ingradientes do Filé</h3>
+          <ul>
+            <li>3 filés de frango</li>
+            <li>3 fatias de queijo mussarela</li>
+            <li>Farinha de amêndoas para empanar</li>
+            <li>1 ovo batido</li>
+            <li>Temperos de sua preferência (sugestão: sal, mix de ervas secas, alho em pó e páprica defumada)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Coloque o tomate, a cebola e o alho em uma travessa;</p>
+          <br>
+          <p>3° Coloque sal, azeite, salsinha e leve ao forno preaquecido a 180ºC por cerca de 40 minutos;</p>
+          <br>
+          <p>4° Enquanto isso, tempere os filés de frango com sal, ervas secas, alho, páprica ou outros
+                temperos que preferir;</p>
+          <br>
+          <p>5° Passe o filé primeiro no ovo, depois na farinha de amêndoas e posicione na forma untada.
+                Repita esse processo com o restante dos filés e leve ao forno preaquecido a 180ºC
+                por cerca de 20 minutinhos;</p>
+          <p>6° Em um liquidificador, coloque os ingredientes assados do molho e bata até formar um creme;</p>
+          <br>
+          <p>7° Retire os filés assados do forno;</p>
+          <br>
+          <p>8° Em seguida, adicione o molho de tomate por cima de cada um;</p>
+          <br>
+          <p>9° Coloque o queijo mussarela por cima e um salpique de orégano. Leve ao forno até gratinar;</p>
+          <br>
+          <p>10° Agora é só servir! Bom apetite.</p>
+          
+        </div>
+      </div>
+
+    <!-- Ragu de Carne Simples -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/ragu_carne.jpeg') }}" alt="Ragu de Carne">
+        <h2>Ragu de Carne Simples</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1,5 kg de coxão mole ou peito bovino em peça e sem osso</li>
+            <li>1 cebola descascada</li>
+            <li>1 cenoura lavada e descascada</li>
+            <li>2 talos de salsão lavados, sem as folhas e cortados em cubinhos</li>
+            <li>3 dentes de alho descascados</li>
+            <li>70 gramas de bacon cortado em cubinhos</li>
+            <li>1 lata de tomate pelado em pedaços e com líquido</li>
+            <li>1 colher de sopa de extrato de tomate</li>
+            <li>1/3 xícara de chá de azeitona preta e sem caroço</li>
+            <li>1 xícara de chá de vinho tinto</li>
+            <li>1 litro de água</li>
+            <li>1 folha de louro</li>
+            <li>1 colher de chá de orégano seco</li>
+            <li>2 colheres de sopa de azeite</li>
+            <li>Sal e pimenta-do-reino a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Junte todos os ingredientes do ragu de carne;</p>
+          <br>
+          <p>2° Com o auxílio de uma faca, retire o excesso de gordura e corte a carne em cubos médios de 
+                aproximadamente 5 cm. Depois transfira os pedaços para um recipiente e mantenha-o em temperatura
+                ambiente;</p>
+          <br>      
+          <p>3° Em uma tábua, pique a cebola e os dentes de alho finamente. Depois, corte a cenoura em cubinhos 
+                e as azeitonas em 4 partes. Reserve separadamente;</p>
+          <br>
+          <p>4° Em fogo médio, coloque a panela de pressão com 1/2 colher de azeite. Doure os cubos de carne 
+                de pouco em pouco para que elas fiquem douradas e não soltem os líquidos;</p>
+          <p>5° Na primeira leva, tempere com sal e pimenta-do-reino, e doure todos os lados. Reserve em um 
+                recipiente e continue o processo até todos os cubinhos estarem selados;</p>
+          <br>
+          <p>6° Mantenha a mesma panela em fogo médio, doure o bacon por aproximadamente 1 minuto 
+                (adicione mais azeite);</p>
+          <br>
+          <p>7° Adicione a cebola e mexa-a na panela de modo a pegar os grudadinhos do fundo 
+                (eles dão o sabor do preparo);</p>
+          <br>
+          <p>8° Incremente com a cenoura, salsão e a folha de louro. Refogue por aproximadamente 5 minutos ou até 
+                os legumes ficarem al dente. Coloque sal e pimenta;</p>
+          <br>
+          <p>9° Coloque o extrato de tomate, o alho e o orégano. Misture por cerca de 1 minuto e junte o 
+                tomate pelado. Mexa bem;</p>
+          <br>
+          <p>10° Adicione a água e o vinho, misture tudo e aumente o fogo;</p>
+          <br>
+          <p>11° Quando ferver, retorne a carne dourada para a panela. Tampe-a e cozinhe em fogo médio. Conte cerca de
+                 40 minutos depois que começar a apitar e reduza o fogo;</p>
+          <br>
+          <p>12° Pare o fogo e espere a pressão sair. Retire a tampa e transfira a carne para um prato, desfiando-a com
+                 o auxílio de 2 garfos;</p>
+          <br>
+          <p>13° Retorne a carne desfiada para a panela, misture as azeitonas e acerte os temperos;</p>
+          <br>
+          <p>14° Está pronto! Sirva o ragu de carne simples com o acompanhamento de sua preferência. Bom apetite!</p>
+        </div>
+      </div>  
+
+    <!-- Filé de Peixe Grelhado -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/file_peixe_grelhado.webp') }}" alt="File Peixe Grelhado">
+        <h2>Filé de Peixe Grelhado Simples</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>500 gramas de filé de tilápia</li>
+            <li>1/2 colher de chá de sal</li>
+            <li>3 colheres de sopa de azeite</li>
+            <li>1 colher de chá de alho granulado</li>
+            <li>2 colheres de chá de tomilho</li>
+            <li>1 colher de sopa de suco de limão</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Disponha os filés em uma tigela e tempere-os com sal, azeite, alho, tomilho, suco de limão e reserve;</p>
+          <br>
+          <p>3° Leve uma frigideira ao fogo médio e frite os filés;</p>
+          <br>
+          <p>4° Quando eles estiveram dourados, desligue o fogo e sirva-os em seguida..</p>
+          
+        </div>
+      </div> 
+
+    <!-- Berinjela Recheada -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/berinjela_recheada.webp') }}" alt="Berinjela Recheada">
+        <h2>Berinjela Recheada LowCarb</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 berinjela grande</li>
+            <li>150 gramas de carne moída (sugestão: patinho bem limpo)</li>
+            <li>1 cebola pequena picada</li>
+            <li>1 tomate picado</li>
+            <li>1 colher de sopa de molho de tomate</li>
+            <li>Salsinha, sal e pimenta a gosto</li>
+            <li>1 colher de sobremesa de requeijão light (opcional)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Higienize a berinjela, corte ela no meio e retire o miolo com a ajuda de uma colher;</p>
+          <br>
+          <p>3° Pique o miolo e reserve;</p>
+          <br>
+          <p>4° Em uma panela, adicione a carne moída, a cebola e refogue bem;</p>
+          <br>
+          <p>5° Acrescente o miolo da berinjela picado, o tomate, o molho, a salsinha, o sal, a pimenta,
+                misture bem e deixe cozinhar um pouco;</p>
+          <br>
+          <p>6° Recheie as berinjelas com a carne moída e passe por cima, requeijão light;</p>
+          <br>
+          <p>7° Disponha elas em uma forma, com um dedinho de água e leve para assar em forno preaquecido
+                a 180 ºC por cerca de 20 minutos;</p>
+          <br>
+          <p>8° Agora é só servir.</p>
+          
+        </div>
+      </div>
+
+    <!-- Mandioquinha Sauté -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/mandioquinha_saute.webp') }}" alt="Mandioquinha Saute">
+        <h2>Mandioquinha Sauté</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>3 mandioquinhas (também conhecidas como batata-baroa) (cerca de 500 gramas)</li>
+            <li>2 dentes de alho descascados e picados</li>
+            <li>3 colheres de sopa de manteiga</li>
+            <li>4 ramos de salsinha higienizadas e picadas finamente</li>
+            <li>1/2 colher de chá de sal (ou a gosto)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes da mandioquinha sauté;</p>
+          <br>
+          <p>2° Com o auxílio de um descascador, retire as cascas de todas as mandioquinhas;</p>
+          <br>
+          <p>3° Em seguida, corte-as em cubos médios de aproximadamente 2 cm;</p>
+          <br>
+          <p>4° Coloque esses pedaços na panela no fogo alto e cubra as mandioquinhas com água;</p>
+          <br>
+          <p>5° Logo que começar a ferver, diminua o fogo e cozinhe por cerca de 15 minutos (para verificar se estão no ponto, 
+                espete um garfo e observe se elas estão cozidas e firmes);</p>
+          <br>
+          <p>6° Após cozidas, descarte a água do cozimento e reserve as mandioquinhas cozidas;</p>
+          <br>
+          <p>7° Em fogo médio, leve uma frigideira com manteiga e espere ela derreter;</p>
+          <br>
+          <p>8° Com a manteiga derretida, transfira as mandioquinhas para a frigideira, tempere-as com sal e 
+                deixe cozinhando por aproximadamente 10 minutos. Lembre-se de mexer nesse 
+                intervalo até elas começarem a dourar;</p>
+          <br>
+          <p>9° Adicione o alho e mexa por mais 2 minutos e desligue o fogo;</p>
+          <br>
+          <p>10° Está pronto! Salpique a salsinha picada e sirva. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    <!-- Arroz Negro -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/arroz_negro.webp') }}" alt="Arroz Negro">
+        <h2>Arroz Negro</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 colheres de sopa de azeite</li>
+            <li>1 colher de sopa de manteiga</li>
+            <li>1/2 cebola descascada e picada (80 gramas)</li>
+            <li>1 dente de alho descascado e amassado</li>
+            <li>1 e 1/2 xícara de chá de arroz negro (300 gramas)</li>
+            <li>4 e 1/2 xícara de chá de água (900 ml)</li>
+            <li>1 colher de café de sal ou a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes para fazer esse arroz negro diferente e delicioso que combina com frutos do mar;</p>
+          <br>
+          <p>2° Em uma panela média no fogo médio, despeje o azeite e a manteiga. Mexa com uma colher até derreter;</p>
+          <br>
+          <p>3° Adicione a cebola picada na panela e frite até ela ficar douradinha, ce cerca de 3 minutos;</p>
+          <br>
+          <p>4° Após ela ficar dourada, adicione o alho picado e continue mexendo por mais 1 minuto para não queimar;</p>
+          <br>
+          <p>5° Depois, acrescente o arroz negro na panela com o alho e a cebola douradas;</p>
+          <br>
+          <p>6° Frite o arroz e continue mexendo por mais 2 minutos;</p>
+          <br>
+          <p>7° Adicione a água e o sal. Misture com a colher para todos os grãos ficarem submersos no líquido. 
+                Reduza para o fogo baixo e deixe cozinhar sem a tampa por cerca de 45 minutos ou até ficar al dente - nem muito duro, nem muito mole, ao ponto;</p>
+          <br>
+          <p>8° Sirva com um fio de azeite e cebolinha picada. Bom apetite!</p>
+        </div>
+      </div>
+
+    <!-- Macarrão de Abobrinha  -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_almoco_jantar/macarrao_abobrinha.webp') }}" alt="Macarrao Abobrinha">
+        <h2>Macarrão de Abobrinha Simples</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 abobrinhas</li>
+            <li>1 colher de sopa de azeite</li>
+            <li>1/2 cebola picada</li>
+            <li>1/2 cenoura picada</li>
+            <li>1 dente de alho picado</li>
+            <li>1 lata de molho de tomate</li>
+            <li>1 lata de água</li>
+            <li>Sal e pimenta-do-reino a gosto</li>
+            <li>1 colher de chá de mostarda</li>
+            <li>1 colher de sopa de ketchup</li>
+            <li>Orégano a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Leve uma panela ao fogo, adicione o azeite, e refogue a cebola e a cenoura;</p>
+          <br>
+          <p>3° Em seguida, acrescente o alho, e refogue por mais 1 minuto;</p>
+          <br>
+          <p>4° Junte o molho de tomate, a água, o sal, a pimenta, a mostarda, o ketchup, o orégano, misture, tampe a 
+             panela, e deixe tudo cozinhar em fogo baixo por cerca de 10 minutos;</p>
+          <br>
+          <p>5° Lave as abobrinhas, e corte-as em pequenas tiras;</p>
+          <br>
+          <p>6° Leve uma panela ao fogo, adicione o azeite, as tiras de abobrinha, sal, pimenta e refogue por 3 minutos;</p>
+          <br>
+          <p>7° Transfira o refogado de abobrinha para um refratário, despeje o molho por cima, misture, e sirva. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Receita' : 'Ver Receita';
+    }
+  </script>
+
+</body>
+</html>

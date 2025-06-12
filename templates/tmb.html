@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de TMB</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    /* Copie os estilos do IMC e adicione os específicos do TMB */
+    .formulario-tmb {
+      max-width: 600px;
+      margin: 30px auto;
+      background-color: #f5f7fa;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .formulario-tmb label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .formulario-tmb input[type="number"],
+    .formulario-tmb select {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    .formulario-tmb button {
+      width: 100%;
+      padding: 12px;
+      background-color: #2e9e6f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .formulario-tmb button:hover {
+      background-color: #267c58;
+    }
+
+    #resultadoTMB {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2e9e6f;
+      margin-top: 20px;
+    }
+
+    .descricao-tmb {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #444;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="formulario-tmb">
+    <h1 style="color: #666; text-align: center;">Calculadora de TMB</h1>
+    <form id="form-tmb">
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" required>
+        <option value="">Selecione</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+      </select>
+
+      <label for="peso">Peso (kg):</label>
+      <input type="number" id="peso" placeholder="Ex: 70.5" required />
+
+      <label for="altura">Altura (cm):</label>
+      <input type="number" id="altura" placeholder="Ex: 175" required />
+
+      <label for="idade">Idade:</label>
+      <input type="number" id="idade" placeholder="Ex: 30" required />
+
+      <button type="submit">Calcular TMB</button>
+    </form>
+
+    <p id="resultadoTMB"></p>
+
+    <div class="descricao-tmb">
+      <h2>O que é TMB?</h2>
+      <p>
+        TMB significa <strong>Taxa de Metabolismo Basal</strong>. É a quantidade de energia que seu corpo precisa em repouso para manter funções vitais como respirar, manter os batimentos cardíacos e a temperatura corporal.
+      </p>
+      <p>
+        É um valor importante para quem quer ganhar massa muscular, emagrecer ou manter o peso.
+      </p>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("form-tmb").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const sexo = document.getElementById("sexo").value;
+      const peso = parseFloat(document.getElementById("peso").value);
+      const altura = parseFloat(document.getElementById("altura").value);
+      const idade = parseInt(document.getElementById("idade").value);
+
+      let tmb;
+
+      if (sexo === "masculino") {
+        tmb = 10 * peso + 6.25 * altura - 5 * idade + 5;
+      } else if (sexo === "feminino") {
+        tmb = 10 * peso + 6.25 * altura - 5 * idade - 161;
+      } else {
+        document.getElementById("resultadoTMB").textContent = "Sexo inválido.";
+        return;
+      }
+
+      document.getElementById("resultadoTMB").textContent = `Sua TMB é: ${tmb.toFixed(2)} kcal/dia`;
+    });
+  </script>
+
+  <!-- RODAPÉ (opcional) -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+</body>
+</html>
+

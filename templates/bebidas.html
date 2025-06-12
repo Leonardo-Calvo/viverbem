@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Sucos / Vitaminas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+  .card-receita img {
+  width: 85%;
+  aspect-ratio: 3 / 3; 
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+   <h1>Bebidas, Sucos e Vitaminas</h1>
+   <p>Nutrição e frescor para o seu dia!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      <!-- Milk-shake de Açaí com Banana -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/milkshake_acai_banana.webp') }}" alt="MilkShake Acai com Banana">
+        <h2>Milk-shake de Açaí com Banana</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>200 g de iogurte grego</li>
+            <li>250 g de açaí (congelado)</li>
+            <li>6 fatias de banana (qualquer tipo)</li>
+            <li>3 colheres de sopa de leite (gelado)</li>
+            <li>Granola para decorar</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um liquidificador, adicione o iogurte, o açaí, as bananas, o leite e bata até ficar homogêneo;</p>
+          <br>
+          <p>3° Transfira para um copo e decore com granola;</p>
+          <br>
+          <p>4° Agora é só servir.</p>
+          
+        </div>
+      </div>
+
+      <!-- Cajuína -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/cajuina.webp') }}" alt="Cajuina">
+        <h2>Cajuína</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 litros de polpa de caju</li>
+            <li>2 gramas de gelatina incolor</li>
+            <li>Água para dissolver a gelatina</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Separe os ingredientes para fazer essa deliciosa cajuína;</p>
+          <br>
+          <p>2° Em um recipiente, misture a gelatina na água, leve ao micro-ondas por 20 segundos e repita o 
+                procedimento até que dissolva bem e fique sem gruminhos;</p>
+          <br>
+          <p>3° Transfira a gelatina hidratada para um recipiente e junte o suco de polpa de caju. Misture e 
+                deixe descansar por 5 a 10 minutos ou até a mistura ficar com uma consistência de talhada;</p>
+          <br>
+          <p>4° Quando chegar na consistência de talhado, coe o suco aos poucos, com um coador de pano. Caso 
+                não tenha, pode utilizar um pano bem limpo. Repita esse processo quantas vezes forem 
+                necessárias, até obter um líquido transparente;</p>
+          <br>
+          <p>5° Transfira o líquido para uma garrafa e tampe. Coloque a garrafa em uma panela, cubra com água 
+                e deixe só a boca da garrafa fora da água. Leve ao fogo, deixe cozinhar até a água ferver e a 
+                cajuína dourar levemente;</p>
+          <br>
+          <p>6° Deixe a garrafa esfriar e leve para a geladeira. Agora é só servir essa bebida saborosa!</p>
+          
+        </div>
+      </div>
+
+      <!-- Vitamina de Pitaya -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/vitamina_pitaya.webp') }}" alt="Vitamina Pitaya">
+        <h2>Vitamina de Pitaya</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>300 ml de leite integral gelado</li>
+            <li>1 banana-prata madura congela</li>
+            <li>1/2 pitaya vermelha</li>
+            <li>Mel a gosto (para adoçar)</li>
+            <li>CINGRADIENTE</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Congele a banana-prata em rodelas para facilitar o preparo.</p>
+          <br>
+          <p>2° Retire a polpa da pitaya e descarte a casca.</p>
+          <br>
+          <p>3° No liquidificador, coloque a banana congelada, a polpa da pitaya, o leite e o mel.</p>
+          <br>
+          <p>4° Bata em velocidade alta até obter uma vitamina homogênea.</p>
+          <br>
+          <p>5° É só servir e aproveitar!.</p>
+          
+        </div>
+      </div>
+
+      <!-- Suco Verde com Ora-Pro-Nóbis -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/suco_verde.webp') }}" alt="Suco Verde">
+        <h2>Suco Verde com Ora-Pro-Nóbis</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 litro de água gelada</li>
+            <li>1 xícara de chá (bem cheia) de folhas frescas de ora-pro-nóbis</li>
+            <li>1 maçã verde picada em cubos</li>
+            <li>Suco de 4 limões taiti</li>
+            <li>Gelo a vontade</li>
+            <li>Açúcar ou adoçante se preferir</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Em um liquidificador, primeiro coloque a água e o suco de limão</p>
+          <br>
+          <p>3° Em seguida, coloque a maçã e a ora-pro-nóbis;</p>
+          <br>
+          <p>4° Bata essa mistura no liquidificador até que todos os ingredientes incorporem;</p>
+          <br>
+          <p>5° Despeje no copo e adicione gelo e açúcar. Misture</p>
+          <br>
+          <p>6° Sirva e bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Chá Digestivo -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/cha_digestivo.jpg') }}" alt="Cha Digestivo">
+        <h2>Chá Digestivo</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>10 folhas de manjericão</li>
+            <li>1 litro de água fervente</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Coloque a água para ferver em uma panela.</p>
+          <br>
+          <p>2° Assim que levantar fervura, desligue o fogo a adicione as folhas de manjericão.</p>
+          <br>
+          <p>3° Cubra com um pano e deixe esfriar.</p>
+          <br>
+          <p>4° Agora é só servir.</p>
+          
+        </div>
+      </div>
+
+      <!-- Vitamina de Abacate Fácil-->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/vitamina_abacate.webp') }}" alt="Vitamina de Abacate">
+        <h2>Vitamina de Abacate Fácil</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 xícara de chá de abacate cortado em cubos</li>
+            <li>1 e ½ xícara de chá de leite gelado</li>
+            <li>2 colheres de sopa de mel (ou outro adoçante de sua preferência)</li>
+            <li>Cubos de gelo a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Coloque o abacate, o leite e o mel no liquidificador e bata até atingir uma mistura homogênea;</p>
+          <br>
+          <p>3° Transfira a vitamina para 2 copos e sirva-a com os cubos de gelo. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Vitamina de Mamão -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/vitamina_mamao.webp') }}" alt="Vitamina de Mamao">
+        <h2>Vitamina de Mamão</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 mamão (300 gramas)</li>
+            <li>1 banana (100 gramas)</li>
+            <li>1 maçã (50 gramas)</li>
+            <li>Mel a gosto </li>
+            <li>150 ml de leite</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Escolha frutas sem manchas muito grandes ou furos na casca. Higienize bem todas elas antes 
+             de iniciar o preparo.</p>
+          <br>
+          <p>2° Descasque o mamão e corte ao meio. Com o auxílio de uma colher, remova as sementes e descarte.</p>
+          <br>
+          <p>3° Descasque também a banana e pique em rodelas. Corte a maçã ao meio, retire o miolo com sementes e pique em cubos.</p>
+          <br>
+          <p>4° Coloque todos os ingredientes no liquidificador e bata até misturar e triturar bem, por aproximadamente 1 minuto.</p>
+          <br>
+          <p>5° Sirva em um copo com gelo. Aproveite essa vitamina pela manhã ou no fim da tarde.</p>
+          
+        </div>
+      </div>
+
+      <!-- Vitamina de Banana -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/vitamina_banana.webp') }}" alt="Vitamina Banana">
+        <h2>Vitamina de Banana</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>4 bananas pequenas (200 gramas)</li>
+            <li>300 ml de leite</li>
+            <li>2 colheres de sopa de aveia em flocos</li>
+            <li>Gelo a gosto (opcional)</li>
+            <li>CINGRADIENTE</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Já deixe todos os ingredientes em mãos para preparar a vitamina.</p>
+          <br>
+          <p>2° Corte as bananas em rodela para facilitar na hora de bater.</p>
+          <br>
+          <p>3° No liquidificador, coloque o leite, metade das bananas e batata por 1 minuto.</p>
+          <br>
+          <p>4° Acrescente o restante das banana e bata por mais 1 minuto.</p>
+          <br>
+          <p>5° Adicione a aveia em flocos e continue batendo até obter uma vitamina homogênea.</p>
+          <br>
+          <p>6° Se quiser, coloque o gelo e bata até triturar bem.</p>
+          <br>
+          <p>7° Já pode servir a vitamina de banana.</p>
+          
+        </div>
+      </div>
+
+      <!-- Suco Detox Tropical -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/suco_detox_tropical.webp') }}" alt="Suco Detox Tropical">
+        <h2>Suco Detox Tropical</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 xícara de chá de manga picada</li>
+            <li>1 xícara de chá de abacaxi picado</li>
+            <li>1/2 limão espremido</li>
+            <li>1 colher de chá de cúrcuma</li>
+            <li>1 colher de chá de gengibre ralado</li>
+            <li>1 folha de couve</li>
+            <li>200 ml de água de coco</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Em um liquidificador, coloque todos os ingredientes e bata até misturar bem.</p>
+          <br>
+          <p>2° Agora é só servir! Aproveite.</p>
+          
+        </div>
+      </div>
+
+      <!-- MilkShake LowCarb -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/milkshake_lowcarb.webp') }}" alt="MilkShake LowCarb">
+        <h2>MilkShake LowCarb</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>200ml de leite de coco</li>
+            <li>1/2 xícara de chá de creme de leite fresco</li>
+            <li>2 colheres de sopa de sucralose em pó</li>
+            <li>1 colher de chá de cacau 100%</li>
+            <li>1 scoop de whey de chocolate ou 1/4 de xícara de chocolate em pó (opcional)</li>
+            <li>2 a 4 colheres de sopa de água (para ajudar a dissolver as pedrinhas de leite de coco)</li>
+            <li>Adoçante estévia gotas a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Para facilitar, separe todos os ingredientes já medidos. Vai agilizar o momento do preparo.</p>
+          <br>
+          <p>2° Despeje o leite de coco em forminhas de gelo e deixe no congelador de um dia para o outro.</p>
+          <br>
+          <p>3° Em um recipiente, adicione o creme de leite, a sucralose em pó e bata até formar um chantilly
+                firme. Reserve na geladeira.</p>
+          <br>
+          <p>4° Em um liquidificador, coloque as pedrinhas de leite de coco congelado, o cacau, a estévia, 
+                a água e bata até misturar tudo e ficar bem cremoso.</p>
+          <br>
+          <p>5° Acrescente o whey bem no meio e bata novamente até incorporar.</p>
+          <br>
+          <p>6° Despeje em um copo e decore com o chantilly.</p>
+          <br>
+          <p>7° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Suco de Limão com Gengibre e Hortelã -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/detox_hortela.webp') }}" alt="Detox Hortela">
+        <h2>Suco de Limão com Gengibre e Hortelã</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>Suco de 2 limões</li>
+            <li>1 pedaço pequeno de gengibre</li>
+            <li>Folhas de hortelã a gosto</li>
+            <li>Gelo a gosto</li>
+            <li>Mel para adoçar</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Coloque tudo no liquidificador e bata até misturar bem.</p>
+          <br>
+          <p>2° Coe e adicione o mel para adoçar.</p>
+          <br>
+          <p>3° Agora é só servir. Bom apetite.</p>
+          
+        </div>
+      </div>
+
+      <!-- Vitamina de Morango Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_bebidas/vitamina_morango.webp') }}" alt="Vitamina de Morango">
+        <h2>Vitamina de Morango Fit</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>5 morangos</li>
+            <li>1 banana</li>
+            <li>250 ml água</li>
+            <li>2 colheres de sopa de Whey sabor morango</li>
+            <li>CINGRADIENTE</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Coloque tudo no liquidificador e bata até misturar bem.</p>
+          <br>
+          <p>2° Leve para a geladeira por aproximadamente 1 hora.</p>
+          <br>
+          <p>3° Agora é só servir. Bom apetite.</p>
+          
+        </div>
+      </div>
+
+
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Receita' : 'Ver Receita';
+    }
+  </script>
+
+</body>
+</html>

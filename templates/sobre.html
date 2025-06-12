@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>SOBRE</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body> 
+
+                            <!-- NAV BAR PADRÃO DO SITE -->
+  <header class="topo">          
+    <div class="logo">
+     <a href="{{ url_for('pagina_principal') }}">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem">
+     </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+    </ul>
+    </nav>
+  </header>
+   
+   
+   
+</body>
+</html>

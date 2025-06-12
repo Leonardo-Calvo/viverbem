@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Café da Manhã</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+  .card-receita img {
+  width: 85%;
+  aspect-ratio: 3 / 3; 
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+    <h1>Receitas de Café da Manhã e Lanches</h1>
+    <p>Momentos leves e deliciosos para o seu dia a dia!</p>
+    </section>
+
+    <section class="grid-receitas">
+
+      <!-- Pão de Queijo Fit de Tapioca -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/pao_queijo_tapioca.webp') }}" alt="Pao Queijo Tapioca">
+        <h2>Pão de Queijo Fit de Tapioca</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 xícara de chá de tapioca hidratada</li>
+            <li>75 gramas de queijo cottage (cream cheese ou creme de ricota light)</li>
+            <li>40 gramas de queijo minas padrão ralado</li>
+            <li>Parmesão ralado a gosto</li>
+            <li>Sal a gosto</li>
+            <li>1 colher de sopa de linhaça (ou chia)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes do seu pão de queijo fit de tapioca;</p>
+          <br>
+          <p>2° Coloque a tapioca hidratada, o queijo cottage, o queijo minas, o parmesão, o sal e a linhaça. Misture bem;</p>
+          <br>
+          <p>3° Unte as mãos com um pouco de óleo, e molde bolinhas com a massa;</p>
+          <br>
+          <p>4° Disponha as bolinhas em uma forma com papel manteiga, polvilhe um pouquinho de parmesão ralado por cima 
+                de cada bolinha, e asse-as em forno preaquecido a 200ºC por cerca de 20 a 25 minutos, ou até que os pães de queijo fiquem douradinhos;</p>
+          <br>
+          <p>5° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Pão LowCarb Frigideira -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/pao_lowcarb_frigideira.jpeg') }}" alt="Pao LowCarb Frigideira">
+        <h2>Pão LowCarb de Frigideira</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 ovos</li>
+            <li>1 pitada de sal</li>
+            <li>4 colheres de sopa de farinha de amêndoas</li>
+            <li>2 colheres de sopa de farinha de coco</li>
+            <li>2 colheres de sopa mais 1 fio de azeite de oliva</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes do pão low carb de frigideira;</p>
+          <br>
+          <p>2° Em um recipiente, coloque os ovos, o sal, as farinhas de amêndoas e de coco, as colheres 
+                de azeite e misture bem até a massa ficar mais consistente;</p>
+          <br>
+          <p>3° Ligeiramente, incorpore o fermento na massa e reserve;</p>
+          <br>
+          <p>4° Unte uma frigideira com o fio de azeite e disponha metade da massa;</p>
+          <br>
+          <p>5° Usando as pontas dos dedos umedecidas com água, molde a massa cobrindo todo o fundo da frigideira;</p>
+          <br>
+          <p>6° Leve ao fogo bem baixo e tampe a frigideira. Deixe cozinhar por 5 minutos;</p>
+          <br>
+          <p>7° Desligue o fogo e, sem tirar o pão e a tampa da frigideira, deixe-o descansar por mais 3 minutos;</p>
+          <br>
+          <p>8° Depois do tempo necessário, vire o pão, usando uma espátula mole, e cozinhe em fogo baixo por mais 3 minutos, 
+                com a frigideira tampada;</p>
+          <br>
+          <p>9° Assim que dourar, retire o pão da frigideira e repita todo o processo de assar com o restante da massa. Está pronto!</p>
+
+        </div>
+      </div>
+  
+      <!-- Salgado Proteico LowCarb -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/salgado_proteico.webp') }}" alt="Salgado Proteico">
+        <h2>Salgado Proteico LowCarb</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 ovos</li>
+            <li>2 xícaras de chá de frango cozido, temperado e desfiado</li>
+            <li>1 xícara de chá espinafre refogado no azeite de oliva</li>
+            <li>1 colher de sopa de farelo de aveia</li>
+            <li>1 colher de sopa de requeijão</li>
+            <li>Sal a gosto</li>
+            <li>1 colher de chá de alho, cebola e salsa</li>
+            <li>1 colher de chá de páprica defumada</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Separe os ingredientes do salgado proteico low carb;</p>
+          <br>
+          <p>2° Em um recipiente, bata os ovos rapidamente;</p>
+          <br>
+          <p>3° Adicione e misture o restante dos ingredientes, exceto os temperos;</p>
+          <br>
+          <p>4° Quando estiver homogêneo, tempere com sal, alho, cebola, salsa e páprica defumada;</p>
+          <br>
+          <p>5° Coloque porções da massa em forminhas de silicone e asse em forno preaquecido a 200°C por
+                aproximadamente 20 minutos;</p>
+          <br>
+          <p>6° Sirva no café da tarde com o molho de sua preferência. Bom apetite!</p>
+          
+        </div>
+      </div>
+   
+      <!-- Crepioca de Queijo com Tomate e Orégano -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/crepioca_queijo.webp') }}" alt="Crepioca Queijo">
+        <h2>Crepioca de Queijo com Tomate e Orégano</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 ovo</li>
+            <li>2 colheres de sopa de tapioca</li>
+            <li>1 pitada de sal rosa</li>
+            <li>1 fio de azeite de oliva</li>
+            <li>2 fatias de queijo frescal, Minas ou gouda</li>
+            <li>1 colher de sopa de tomate-cereja</li>
+            <li>Orégano a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° O ideal é utilizar goma de tapioca, pois já vem hidratada. Não é possível fazer crepioca 
+                com tapioca granulada, pérolas ou a farinha seca. Fatie o tomate-cereja bem fininho;</p>
+          <br>
+          <p>2° Em um recipiente, coloque o ovo (verifique se ele não está estragado), a tapioca e o sal.
+                Misture bem para incorporar todos os ingredientes;</p>
+          <br>
+          <p>3° Em uma frigideira de fundo largo, aqueça um fio de azeite (deixe o fundo bem untado).
+                Despeje a massa de crepioca e cozinhe em fogo abaixo até começar a soltar do fundo da
+                frigideira (cerca de 1 minuto). Vire e doure o outro lado;</p>
+          <br>
+          <p>4° Em um dos lados da crepioca, coloque as duas fatias de queijo frescal (uma do lado do outro).
+                Por cima do queijo, disponhas as fatias de tomatinho-cereja. Polvilhe o orégano (se quiser, 
+                adicione uma pitada de sal). Tampe a frigideira e cozinhe por 1 ou 2 minutos;</p>
+          <br>
+          <p>5° Assim que os tomatinhos derem uma boa murchada, desligue o fogo e dobre a crepioca ao meio
+                (o lado sem recheio por cima do lado com recheio). Está prontinha!</p>
+          
+        </div>
+      </div>
+  
+      <!-- Cone de Rap10 na ayrfrier -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/cone_rap10.webp') }}" alt="Cone Rap10">
+        <h2>Cone de Rap10 na Airfryer</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>3 discos de Rap10</li>
+            <li>200 gramas de frango desfiado</li>
+            <li>2 colheres de sopa de requeijão cremoso</li>
+            <li>1/2 cenoura ralada</li>
+            <li>1/2 cebola picada</li>
+            <li>1 dente de alho picado</li>
+            <li>Cebolinha picada a gosto</li>
+            <li>Azeitonas picadas a gosto</li>
+            <li>Parmesão a gosto</li>
+            <li>Azeite para refogar</li>
+            <li>Páprica defumada a gosto</li>
+            <li>Sal e pimenta-do-reino a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Coloque um pouco de azeite em uma frigideira, em fogo médio;</p>
+          <br>
+          <p>3° Tempere com páprica e refogue a cebola e o alho;</p>
+          <br>
+          <p>4° Depois, adicione a cenoura e o frango;</p>
+          <br>
+          <p>5° Em seguida, coloque as azeitonas e tempere com a cebolinha, o sal e a pimenta;</p>
+          <br>
+          <p>6° Desligue o fogo e misture o requeijão;</p>
+          <br>
+          <p>7° Corte o Rap10 ao meio e passe uma camada da mistura da frigideira;</p>
+          <br>
+          <p>8° Enrole o Rap10, para moldar o cone;</p>
+          <br>
+          <p>9° Por cima de tudo, salpique o queijo parmesão ralado. Repita os passos
+                7, 8 e 9 com os outros discos de Rap10;</p>
+          <br>
+          <p>10° Por fim, leve os lanches à Airfryer preaquecida a 200 °C, por 10 minutos;</p>
+          <br>
+          <p>11° Agora é só servir! Bom apetite.</p>
+          
+        </div>
+      </div>
+
+      <!-- Sanduiche Atum Natural Simples -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/sanduiche_atum.jpg') }}" alt="Sanduiche Atum">
+        <h2>Sanduíche Natural de Atum Simples</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 lata de atum escorrida (atum em óleo)</li>
+            <li>1 cenoura pequena ralada</li>
+            <li>2 colheres de sopa de salsinha picada</li>
+            <li>1 colher de café de tempero completo (ou sal e pimenta)</li>
+            <li>1 colher de sopa de mostarda</li>
+            <li>4 colheres de sopa de maionese light</li>
+            <li>8 fatias de pão de forma integral</li>
+            <li>Folhas de alface a gosto</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Separe os ingredientes desse delicioso sanduíche natural de atum! Simples de fazer, 
+                você vai adorar e querer fazer toda hora;</p>
+          <br>
+          <p>2° Lave e higienize todos os legumes e a salsinha. Descasque a cenoura e rale. Pique a
+                salsinha em uma tábua e reserve;</p>
+          <br>
+          <p>3° Em um recipiente médio, junte o atum, a cenoura ralada, o tempero, a mostarda, a 
+                maionese e a salsinha. Misture tudo muito bem e, se quiser um recheio mais cremoso,
+                adicione mais maionese;</p>
+          <br>
+          <p>4° Em uma fatia do pão, espalhe uma camada de atum e posicione as folhas de alface por cima;</p>
+          <br>
+          <p>5° Passe outra camada de recheio na outra fatia e repita esse processo com a quantidade que desejar;</p>
+          <br>
+          <p>6° Feche e sirva um delicioso sanduíche de atum no seu lanchinho da tarde. Sirva e bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Pastel de Forno com Aveia -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/pastel_forno_aveia.jpeg') }}" alt="Pastel Forno Aveia">
+        <h2>Pastel de Forno com Aveia</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes do Recheio:</h3>
+          <ul>
+            <li>3 colheres de sopa de azeite</li>
+            <li>1/2 cebola picada</li>
+            <li>2 dentes de alho picado</li>
+            <li>65 gramas de peito de frango cozido e desfiado</li>
+            <li>Sal e pimenta a gosto</li>
+            <li>Páprica picante a gosto</li>
+            <li>1/2 tomate picado</li>
+            <li>Cebolinha a gosto</li>
+          </ul>
+          <br>
+          <h3>Ingredientes da Massa:</h3>
+          <ul>
+            <li>240 gramas de farinha de aveia</li>
+            <li>200 gramas de creme de leite ou nata</li>
+            <li>Sal a gosto</li>
+            <li>2 gemas misturadas com azeite (para pincelar)</li>
+          </ul>
+          <br>
+          <h3>Modo de Preparo do Recheio:</h3>
+          <p>1° Junte todos os ingredientes do recheio;</p>
+          <br>
+          <p>2° Em uma panela, esquente o azeite e refogue a cebola no fogo baixo;</p>
+          <br>
+          <p>3° Adicione o alho. Refogue mias um pouco;</p>
+          <br>
+          <p>4° Acrescente o frango desfiado, o sal, a pimenta e a páprica. Misture e deixe refogar,
+                mexendo, até o frango mudar de cor;</p>
+          <br>
+          <p>5° Coloque o tomate e a cebolinha. Misture e deixe dar uma leve refogada. Reserve.</p>
+          <br>
+          <h3>Modo de Preparo da Massa e Finalização:</h3>
+          <p>1° Junte todos os ingredientes da massa;</p>
+          <br>
+          <p>2° Em um recipiente, coloque a farinha de aveia, o sal e o creme de leite. 
+                Misture, com uma espátula, até formar uma massa grudenta;</p>
+          <br>
+          <p>3° Transfira ela para uma bancada enfarinhada (com farinha de aveia) e sove a massa por 5 minutos;</p>
+          <br>
+          <p>4° Coloque a massa entre dois plásticos e abara ela (não muito grossa) com um rolo;</p>  
+          <br> 
+          <p>5° Corte a massa em círculos de cerca de 12 cm;</p>
+          <br>
+          <p>6° Coloque uma colher de sopa do recheio no meio de cada círculo;</p>
+          <br> 
+          <p>7° Feche a massa e aperte bem as laterais com um garfo;</p> 
+          <br>    
+          <p>8° Transfira os pastéis para uma forma antiaderente (ou untada e enfarinhada), 
+                pincele a mistura de gema com azeite por cima de cada e leve ao forno preaquecido a 180ºC 
+                por cerca de 15 a 20 minutos;</p>
+          <br>
+          <p>9° Agora é só servir. Bom apetite!</p>
+        </div>
+      </div>
+      
+      <!-- Rosquinha de Polvilho Fit -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/rosquinha_polvilho.webp') }}" alt="Rosquinha Polvilho">
+        <h2>Rosquinha de Polvilho Fit</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 xícaras de chá polvilho azedo</li>
+            <li>1 ovo</li>
+            <li>1 colher de sopa óleo de coco ou outro</li>
+            <li>1 pitada de sal</li>
+            <li>1/2 xícara de chá água quente</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <p>2° Em um recipiente, adicione o polvilho, o ovo, o óleo, o sal e misture bem;</p>
+          <br>
+          <p>3° Acrescente a água quente e misture até formar uma massa homogênea;</p>
+          <br>
+          <p>4° Pegue pequenas porções da massa, molde em formato de rosquinhas ou palitos e disponha
+                em uma forma untada ou antiaderente;</p>
+          <br>
+          <p>5° Leve ao forno preaquecido a 180 ºC por cerca de 15 minutos (se quiser os biscoitos
+                mais macios, deixe menos tempo);</p>
+          <br>
+          <p>6° Agora é só servir.</p>
+          
+        </div>
+      </div>
+      
+      <!-- Coxinha Fit Fácil -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/coxinha_fit.jpeg') }}" alt="Coxinha Fit">
+        <h2>Coxinha Fit Fácil</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes do Recheio:</h3>
+          <ul>
+            <li>Azeite a gosto</li>
+            <li>3 dentes de alho bem amassados</li>
+            <li>1 cebola pequena ralada</li>
+            <li>150 gramas de peito de frango cozido e desfiado</li>
+            <li>Pimenta-do-reino a gosto</li>
+            <li>Cheiro-verde picado a gosto</li>
+          </ul>
+          <br>
+          <h3>Ingredientes da Massa:</h3>
+          <ul>
+            <li>150 gramas de peito de frango cozido e desfiado</li>
+            <li>100 gramas de batata-doce cozida e escorrida</li>
+            <li>1 ovo</li>
+            <li>100 gramas de farinha de quinoa ou de aveia</li>
+            <li>1 gema para pincelar</li>
+            <li>Farelo de aveia a gosto para empanar</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo do Recheio:</h3>
+          <p>1° Reúna todos os ingredientes do recheio;</p>
+          <br>
+          <p>2° Em uma panela, esquente o azeite, refogue o alho e a cebola;</p>
+          <br>
+          <p>3° Adicione o frango, a pimenta, o cheiro-verde. Misture bem;</p>
+          <br>
+          <p>4° Coloque um pouquinho de água, cozinhe por cerca de 5 minutos e reserve.</p>
+          <br>
+          <h3>Modo de Preparo da Massa e Finalização:</h3>         
+          <p>1° Reúna todos os ingredientes da massa;</p>
+          <br>
+          <p>2° Em uma batedeira (ou liquidificador), coloque o frango, as batatas, o ovo, 
+                a farinha de quinoa e bata até que vire uma massa mole e homogênea;</p>
+          <br>
+          <p>3° Leve-a para o congelador por cerca de 20 minutos;</p>
+          <br>
+          <p>4° Molhe as mãos e comece a fazer pequenos discos com a massa;</p>
+          <br>
+          <p>5° Acrescente o recheio no meio e feche a massa moldando ela em formato de coxinha;</p>
+          <br>
+          <p>6° Assim que terminar todas, bata uma gema de ovo e pincele as coxinhas;</p>
+          <br>
+          <p>7° Empane-as com o farelo de aveia e coloque as coxinhas em uma assadeira;</p>
+          <br>
+          <p>8° Leve para o forno preaquecido a 200ºC, por cerca de 10 a 20 minutos ou
+                 até formar uma casquinha e ficarem levemente douradas;</p>
+          <br>
+          <p>9° Agora é só servir. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Mingau de Aveia com Banana -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/mingau_aveia_banana.webp') }}" alt="Mingau Aveia Banana">
+        <h2>Mingau de Aveia com Banana</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>150 ml de leite</li>
+            <li>2 colheres de sopa de farelo de aveia</li>
+            <li>1 colher de sobremesa de mel</li>
+            <li>1/2 banana amassada</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna todos os ingredientes;</p>
+          <br>
+          <p>2° Leve uma panela ao fogo baixo, coloque o leite, o farelo de aveia e o mel, misture, 
+                e deixe cozinhar por 3 minutos ou até engrossar;</p>
+          <br>
+          <p>3° Acrescente a banana amassada, desligue o fogo, e misture ;</p>
+          <br>
+          <p>4° Transfira o mingau para uma tigela e sirva. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Pão Integral de Liquidificador -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/pao_integral_liqui.jpeg') }}" alt="Pão Integral Liquidificador">
+        <h2>Pão Integral de Liquidificador</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>2 ovos (médios)</li>
+            <li>1/2 xícara de chá de azeite de oliva (120 ml)</li>
+            <li>1 colher de sopa de sal (9 gramas)</li>
+            <li>2 xícaras de chá de água morna (480 ml)</li>
+            <li>3/4 xícara de chá de açúcar mascavo (112 gramas)</li>
+            <li>2 sachês de fermento biológico seco (20 gramas)</li>
+            <li>3/4 xícara de chá de aveia em flocos grossos (75 gramas)</li>
+            <li>4 xícaras de chá de farinha de trigo 100% integral (600 gramas)</li>
+            <li>Linhaça e aveia em flocos para decorar (1 colher de sopa ou a gosto)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes do pão integral de liquidificador e unte duas formas de pão com óleo e farinha;</p>
+          <br>
+          <p>2° Coloque a água em um caneco e leve ao fogo baixo para amornar. Antes mesmo de ferver, você pode desligar
+                - o ponto ideal é você poder colocar o dedo na água sem se queimar;</p>
+          <br>
+          <p>3° Em um recipiente pequeno, quebre um ovo de cada vez e transfira para o liquidificador 
+                - se algum ovo estiver estragado, você não perde a receita inteira. Adicione o azeite, 
+                o sal e o açúcar mascavo. Utilize a função pulsar do liquidificador para misturar 
+                esses ingredientes;</p>
+          <br>
+          <p>4° Em seguida, adicione a água morna, o fermento e a aveia em flocos. Bata novamente 
+                apenas para incorporar os ingredientes.;</p>
+          <br>
+          <p>5° Despeje a mistura numa tigela e, aos poucos, acrescente a farinha e vá mexendo delicadamente
+                com uma colher de pau ou espátula;</p>
+          <br>
+          <p>6° transfira a massa para as formas untadas e enfarinhas, preenchendo cada uma até a 
+                metade - o pão precisa de espaço para crescer. Com a colher, alise a superfície do 
+                pão para ficar uniforme;</p>
+          <br>
+          <p>7° Salpique aveia em flocos e linhaça por cima dos pães. Deixe o pão crescer por cerca de 40 minutos
+                a 1 hora e 30 minutos, em um local quentinho - você pode colocar dentro do forno desligado 
+                ou colocar as formas em um saco plástico com ar e fechar;</p>
+          <br>
+          <p>8° Assim que o pão crescer, leve para assar em forno preaquecido a 180ºC por cerca de 40 a 50 
+                minutos ou até passar no teste do palito - espete o pão, se sair limpo é porque está pronto;</p>
+          <br>
+          <p>9° Retire o pão do forno e deixe amornar antes de desenformar. Quando amornar, desenforme e sirva
+                quentinho com manteiga. Aproveite!</p>
+          
+        </div>
+      </div>
+
+      <!-- Cuscuz com Ovo Fácil -->
+      <div class="card-receita">
+        <img src="{{ url_for('static', filename='images/receitas_cafe/cuzcuz_ovo.webp') }}" alt="CusCuz com Ovo">
+        <h2>Cuscuz com Ovo Fácil</h2>
+        <button onclick="mostrarReceita(this)">Ver Receita</button>
+        <div class="receita-detalhes">
+          <h3>Ingredientes:</h3>
+          <ul>
+            <li>1 e 1/2 xícara de chá de farinha de milho flocada (180 gramas)</li>
+            <li>3/4 de xícara de chá de água (180 ml)</li>
+            <li>3 ovos médios</li>
+            <li>1 colher de chá de azeite ou óleo (ou a gosto)</li>
+            <li>1 colher de chá de sal (ou a gosto)</li>
+          </ul>
+          <br>
+          <h3>Modo de preparo:</h3>
+          <p>1° Reúna os ingredientes para fazer saborosas versões de cuscuz com ovo. Tem gema molinha,
+                média ou dura - escolha a que mais gostar e prepare;</p>
+          <br>
+          <p>2° Em uma tigela média, junte a farinha de milho com 1/2 colher de chá de sal.
+                Misture com a colher. Adicione a água aos poucos, mexendo a farinha até ela ficar
+                úmida e em gruminhos maiores. Reserve para hidratar por aproximadamente 10 minutos;</p>
+          <br>
+          <p>3° Coloque a água na parte de baixo da cuscuzeira e leve ao fogo médio para alto. 
+                Enquanto ela começa a esquentar, preencha a panelinha superior com a farinha de 
+                milho hidratada sem apertar, para manter o cuscuz macio. Deixe cozinhar por cerca
+                de 10 minutos;</p>
+          <br>
+          <p>4° Enquanto espera o cuscuz cozinhar, leve uma frigideira antiaderente com um fio de óleo ou azeite
+                no fogo baixo. Quebre o ovo em um potinho separado e verifique o aspecto e o cheiro. Se estiver
+                bom, despeje-o na frigideira com 1 pitada de sal. Frite por cerca de 1 minuto;</p>
+          <br>
+          <p>5° Utilize a espátula para ir soltando as bordas quando ela parecer durinha e mais consistente.
+                Esse ovo ficará com a gema mole. Se quiser uma gema “média” (mais firme por fora, mas ainda 
+                mole por dentro), deixe fritar por cerca de 1 minuto e 30 segundos;</p>
+          <br>
+          <p>6° Para uma gema consistente, repita o processo. Coloque azeite/óleo na frigideira e 
+               despeje o ovo. Quando a clara ficar firme, vire com a espátula, coloque um pouco de água e 
+               tampe. Deixe cozinhar por 2 minutos ou acompanhe o processo apertando a gema com cuidado, 
+               com a ponta do dedo;</p>
+          <br>
+          <p>7° Sirva o cuscuz em um prato e coloque o ovo frito por cima. Bom apetite!</p>
+          
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Receita' : 'Ver Receita';
+    }
+  </script>
+
+</body>
+</html>

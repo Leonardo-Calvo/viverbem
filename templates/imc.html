@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>Calculadora de IMC</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+ <style>
+ .formulario-imc {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: #f5f7fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-imc label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.formulario-imc input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+
+.formulario-imc button {
+  width: 100%;
+  padding: 12px;
+  background-color: #006ba0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-imc button:hover {
+  background-color: #005580;
+}
+
+.resultado-imc {
+  text-align: center;
+  margin-top: 20px;
+  color: #444;
+}
+
+.resultado-imc img {
+  max-width: 500px; 
+  margin-top: 50px;
+}
+
+.descricao-imc {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 25px;
+  padding: 18px;
+  background-color: #d0f0ff; 
+  color: #003d5c; 
+  border-left: 6px solid #00aaff; 
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+ </style>
+</head>
+<body>
+ <header class="topo">          
+   <div class="logo">
+    <a href="{{ url_for('pagina_principal') }}">
+     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+    </a>
+   </div>
+   <nav class="menu-nav">
+     <ul>
+       <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+       <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+       <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+       <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+       <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+       <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+     </ul>
+   </nav>
+ </header>
+
+ <main class="formulario-imc">
+   <h1 style="text-align: center; color: #666;">Calculadora de IMC</h1>
+
+   <form method="POST" id="formIMC">
+     <label for="peso">Peso (kg):</label>
+     <input type="number" step="any" name="peso" id="peso" required placeholder="Ex: 70.5" />
+
+     <label for="altura">Altura (m):</label>
+     <input type="number" step="any" name="altura" id="altura" required placeholder="Ex: 1.75" />
+
+     <button type="submit">Calcular IMC</button>
+   </form>
+
+   {% if imc is not none %}
+   <div class="resultado-imc">
+     <h2>Seu IMC é: {{ imc }}</h2>
+     <p><strong>{{ classificacao }}</strong></p>
+     <img src="{{ url_for('static', filename=imagem) }}" alt="Classificação IMC" />
+    <p class="descricao-imc">{{ descricao }}</p>
+   </div>
+   {% endif %}
+ </main>
+
+ <script>
+   document.getElementById("formIMC").addEventListener("submit", function(event) {
+     let peso = document.getElementById("peso");
+     let altura = document.getElementById("altura");
+
+     peso.value = peso.value.replace(",", ".");
+     altura.value = altura.value.replace(",", ".");
+   });
+ </script>
+
+</body>
+ 
+<div style="margin-top: 30px; background-color: #f0f4f8; padding: 20px; border-radius: 10px; color: #333;">
+  <h2 style="text-align: center; color: #005580; margin-bottom: 10px;">O que é IMC?</h2>
+  <p style="text-align: center; font-size: 16px;">
+    IMC significa <strong>Índice de Massa Corporal</strong>. É uma fórmula usada para avaliar se uma pessoa está com o peso ideal
+    em relação à altura. O cálculo é feito dividindo o peso (em quilogramas) pela altura ao quadrado (em metros). <br><br>
+    Esse índice ajuda a identificar se a pessoa está abaixo do peso, com peso adequado, sobrepeso ou obesidade, sendo muito utilizado
+    como referência em avaliações de saúde.
+  </p>
+</div>
+
+
+<footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+
+</html>

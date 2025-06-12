@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios - Peito</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .pagina-receitas {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .intro-categoria {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .grid-receitas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card-receita {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-receita img {
+      width: 80%;
+      aspect-ratio: 3 / 3;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .card-receita h2 {
+      margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card-receita button {
+      background-color: #ff8c00;
+      color: #fff;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .receita-detalhes {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      background-color: #fdf6f0;
+      padding: 1rem;
+      border-radius: 10px;
+    }
+
+    .receita-detalhes h3 {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="pagina-receitas">
+    <section class="intro-categoria">
+      <h1>Exercícios para Pernas</h1>
+      <p>Fortaleça e defina a musculatura das pernas com esses exercícios eficazes!</p>
+
+    </section>
+
+    <section class="grid-receitas">
+
+  <!-- Agachamento Livre -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/agachamento_livre.gif') }}" alt="Agachamento Livre">
+  <h2>Agachamento Livre</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+      <li>Posterior da coxa</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Posicione a barra sobre os ombros e mantenha os pés afastados na largura dos ombros.</p>
+    <br>
+    <p>2. Agache empurrando o quadril para trás, mantendo a coluna reta.</p>
+    <br>
+    <p>3. Volte à posição inicial estendendo os joelhos e quadris.</p>
+  </div>
+</div>
+
+<!-- Leg Press -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/leg_press.gif') }}" alt="Leg Press">
+  <h2>Leg Press</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+      <li>Posterior da coxa</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se no aparelho com os pés afastados na plataforma.</p>
+    <br>
+    <p>2. Empurre a plataforma até estender as pernas sem travar os joelhos.</p>
+    <br>
+    <p>3. Retorne controladamente até os joelhos ficarem em 90 graus.</p>
+  </div>
+</div>
+
+<!-- Cadeira Extensora -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/cadeira_extensora.gif') }}" alt="Cadeira Extensora">
+  <h2>Cadeira Extensora</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se na cadeira com as costas apoiadas e os pés atrás do rolo acolchoado.</p>
+    <br>
+    <p>2. Estenda as pernas até quase travar os joelhos.</p>
+    <br>
+    <p>3. Volte lentamente à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Cadeira Flexora -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/cadeira_flexora.gif') }}" alt="Cadeira Flexora">
+  <h2>Cadeira Flexora</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Posterior da coxa</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se no aparelho com os pés sob o rolo inferior e as pernas estendidas.</p>
+    <br>
+    <p>2. Flexione os joelhos puxando o rolo para baixo.</p>
+    <br>
+    <p>3. Retorne à posição inicial controladamente.</p>
+  </div>
+</div>
+
+<!-- Passada (Avanço) -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/passada.gif') }}" alt="Passada">
+  <h2>Passada</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Dê um passo à frente com uma perna, mantendo o tronco ereto.</p>
+    <br>
+    <p>2. Flexione ambos os joelhos até o de trás quase tocar o chão.</p>
+    <br>
+    <p>3. Volte à posição inicial e repita com a outra perna.</p>
+  </div>
+</div>
+
+<!-- Stiff -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/stiff.gif') }}" alt="Stiff">
+  <h2>Stiff</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Posterior da coxa</li>
+      <li>Glúteos</li>
+      <li>Região lombar</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Em pé, segure uma barra com as mãos à frente das coxas.</p>
+    <br>
+    <p>2. Incline o tronco à frente, mantendo as costas retas e os joelhos levemente flexionados.</p>
+    <br>
+    <p>3. Volte à posição inicial contraindo os glúteos.</p>
+  </div>
+</div>
+
+<!-- Elevação de Panturrilha em Pé -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/elevacao_panturrilha_em_pe.gif') }}" alt="Elevação de Panturrilha em Pé">
+  <h2>Elevação de Panturrilha em Pé</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Panturrilhas (gastrocnêmio e sóleo)</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Fique em pé com os pés afastados e o corpo ereto.</p>
+    <br>
+    <p>2. Eleve os calcanhares o máximo possível, contraindo as panturrilhas.</p>
+    <br>
+    <p>3. Volte lentamente à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Elevação de Panturrilha Sentado -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/elevacao_panturrilha_sentado.gif') }}" alt="Elevação de Panturrilha Sentado">
+  <h2>Elevação de Panturrilha Sentado</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Panturrilhas (principalmente sóleo)</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Sente-se com os pés apoiados no chão e um peso sobre os joelhos.</p>
+    <br>
+    <p>2. Eleve os calcanhares o máximo que conseguir.</p>
+    <br>
+    <p>3. Retorne devagar à posição inicial.</p>
+  </div>
+</div>
+
+<!-- Agachamento Hack -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/agachamento_hack.gif') }}" alt="Agachamento Hack">
+  <h2>Agachamento Hack</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Posicione-se na máquina Hack com os ombros apoiados e os pés firmes na base.</p>
+    <br>
+    <p>2. Agache-se empurrando os quadris para trás.</p>
+    <br>
+    <p>3. Retorne à posição inicial estendendo os joelhos.</p>
+  </div>
+</div>
+
+<!-- Agachamento Búlgaro -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/agachamento_bulgaro.gif') }}" alt="Agachamento Búlgaro">
+  <h2>Agachamento Búlgaro</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Apoie o pé de trás em um banco e mantenha o outro à frente.</p>
+    <br>
+    <p>2. Agache flexionando o joelho da frente e mantendo o tronco reto.</p>
+    <br>
+    <p>3. Retorne à posição inicial empurrando o chão com o pé da frente.</p>
+  </div>
+</div>
+
+<!-- Levantamento Terra -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/levantamento_terra.gif') }}" alt="Levantamento Terra">
+  <h2>Levantamento Terra</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Posterior da coxa</li>
+      <li>Glúteos</li>
+      <li>Região lombar</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Fique em pé com a barra no chão próxima às canelas.</p>
+    <br>
+    <p>2. Flexione os joelhos e segure a barra mantendo a coluna reta.</p>
+    <br>
+    <p>3. Erga a barra até ficar totalmente ereto, contraindo os glúteos.</p>
+  </div>
+</div>
+
+<!-- Step-up -->
+<div class="card-receita">
+  <img src="{{ url_for('static', filename='images/exercicios_pernas/step_up.gif') }}" alt="Step-up">
+  <h2>Step-up</h2>
+  <button onclick="mostrarReceita(this)">Ver Detalhes</button>
+  <div class="receita-detalhes">
+    <h3>Músculos trabalhados:</h3>
+    <ul>
+      <li>Quadríceps</li>
+      <li>Glúteos</li>
+      <li>Posterior da coxa</li>
+    </ul>
+    <br>
+    <h3>Como fazer:</h3>
+    <p>1. Suba em uma caixa ou banco com um dos pés.</p>
+    <br>
+    <p>2. Estenda a perna até ficar em pé sobre o apoio.</p>
+    <br>
+    <p>3. Desça controladamente e repita com a outra perna.</p>
+  </div>
+</div>
+
+
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function mostrarReceita(botao) {
+      const detalhes = botao.nextElementSibling;
+      detalhes.style.display = detalhes.style.display === 'none' ? 'block' : 'none';
+      botao.textContent = detalhes.style.display === 'block' ? 'Fechar Detalhes' : 'Ver Detalhes';
+    }
+  </script>
+
+</body>
+</html>

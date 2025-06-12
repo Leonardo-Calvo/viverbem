@@ -1,0 +1,150 @@
+/* Resetando margens e padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #FAFAFA; 
+  color: #333333; 
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 1px;
+  border-bottom: 1px solid #DDD;
+}
+
+.topo .logo img {
+  height: 175px;
+  width: auto;
+}
+
+.menu-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.menu-nav a:hover {
+  background-color: #4CAF50; /* Verde */
+  color: #FFF;
+}
+
+/* Seção Hero */
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #FFFFFF;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.botoes-hero .btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Botões */
+
+    /* Calcule seu IMC */
+.btn-primario {
+  background-color: #FFB74D; 
+  color: #333;
+}
+
+.btn-primario:hover {
+  background-color: #FFA726; 
+  color: #FFF;
+}
+ 
+     /*Calcule sua TBM */
+.btn-secundario {
+  background-color: #A5D6A7; 
+  color: #333;
+}
+
+.btn-secundario:hover {
+  background-color: #81C784; 
+  color: #FFF;
+}
+
+    /*Veja sobre receitas */
+.btn-terceiro {  
+  background-color: #FFCCBC; 
+  color: #333;
+}
+
+.btn-terceiro:hover {
+  background-color: #e1a390; 
+  color: #FFF;
+}
+
+/*Exercicios */
+
+.btn-quarto {  
+  background-color: #FF7043; 
+  color: #333;
+}
+
+.btn-quarto:hover {
+  background-color: #F4511E; 
+  color: #FFF;
+}
+
+
+/*Sobre projeto */
+
+.btn-quinto {  
+  background-color: #BBDEFB; 
+  color: #333;
+}
+
+.btn-quinto:hover {
+  background-color: #8ec1ec; 
+  color: #FFF;
+}
+
+
+
+/* Rodapé */
+.rodape {
+  text-align: center;
+  padding: 20px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #DDD;
+  font-size: 0.9rem;
+  color: #777;
+}

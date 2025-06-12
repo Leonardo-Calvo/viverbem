@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exercícios</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .receitas-mural {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .receita-item {
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .receita-item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .receita-item img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #006ba0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <h1>Exercícios</h1>
+    <div class="receitas-mural">
+
+      <div class="receita-item">
+        <p>Treinos de Peito</p>
+        <a href="{{ url_for('exercicio_peito') }}">
+          <img src="{{ url_for('static', filename='images/exercicios/treino_peito.jpg') }}" alt="Peito">
+        </a>
+      </div>
+
+      <div class="receita-item">
+        <p>Treinos de Costa</p>
+        <a href="{{ url_for('exercicio_costa') }}">
+          <img src="{{ url_for('static', filename='images/exercicios/treino_costas.jpg') }}" alt="Costas">
+        </a>
+      </div>
+
+      <div class="receita-item">
+        <p>Treinos de Perna</p>
+        <a href="{{ url_for('exercicio_perna') }}">
+          <img src="{{ url_for('static', filename='images/exercicios/treino_perna.jpg') }}" alt="Perna">
+        </a>
+      </div>
+
+      <div class="receita-item">
+        <p>Aeróbico</p>
+        <a href="{{ url_for('exercicio_aerobico') }}">
+          <img src="{{ url_for('static', filename='images/exercicios/treino_aerobico.jpg') }}" alt="Aerobico">
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+</body>
+</html>

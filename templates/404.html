@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Error 404</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <style>
+    .erro-404 {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .erro-404 img {
+      max-width: 300px;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    .erro-404 h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .erro-404 p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+
+    .erro-404 a {
+      text-decoration: none;
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .erro-404 a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU / HEADER -->
+  <header class="topo">          
+    <div class="logo">
+      <a href="{{ url_for('pagina_principal') }}">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Viva Bem" />
+      </a>
+    </div>
+    <nav class="menu-nav">
+      <ul>
+        <li><a href="{{ url_for('pagina_principal') }}">Início</a></li>
+        <li><a href="{{ url_for('pagina_imc') }}">IMC</a></li>
+        <li><a href="{{ url_for('pagina_tmb') }}">TMB</a></li>
+        <li><a href="{{ url_for('pagina_receitas') }}">Receitas</a></li>
+        <li><a href="{{ url_for('pagina_exercicios') }}">Exercícios</a></li>
+        <li><a href="{{ url_for('pagina_sobre') }}">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <div class="erro-404">
+      <img src="{{ url_for('static', filename='images/outros/imagem_error_404.jpg') }}" alt="Erro 404">
+      <h1>Página não encontrada</h1>
+      <p>Desculpe, o caminho que você tentou acessar não existe.</p>
+      <a href="{{ url_for('pagina_principal') }}">Voltar ao menu</a>
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2025 Viver Bem. Leonardo Lucas Calvo.</p>
+  </footer>
+
+</body>
+</html>
